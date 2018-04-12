@@ -1,0 +1,109 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/MentorGraphics/questasim64_10.5e/examples
+T_opt
+!s110 1523498650
+V3LEU^lNid^Q0;b]9<15Q@1
+04 9 4 work testintro only 1
+=1-4437e6bbb0b7-5acebe99-25-4960
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;10.5e;63
+Eintro
+Z0 w1523498624
+Z1 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z6 dP:/Microprocessors/Labs/Lab 1
+Z7 8P:/Microprocessors/Labs/Lab 1/introvhdl.vhd
+Z8 FP:/Microprocessors/Labs/Lab 1/introvhdl.vhd
+l0
+L7
+VYMmzGLfoQU:b1^Z[XhMWA1
+!s100 zN:b1_9gTea=8cdmjUSBS2
+Z9 OL;C;10.5e;63
+32
+Z10 !s110 1523498627
+!i10b 1
+Z11 !s108 1523498626.000000
+Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/Labs/Lab 1/introvhdl.vhd|
+Z13 !s107 P:/Microprocessors/Labs/Lab 1/introvhdl.vhd|
+!i113 0
+Z14 o-work work -2002 -explicit
+Z15 tExplicit 1 CvgOpt 0
+Abehavior
+R1
+R2
+R3
+R4
+R5
+DEx4 work 5 intro 0 22 YMmzGLfoQU:b1^Z[XhMWA1
+l17
+L16
+Vb=XeICkLjDk;Rd>579@WN2
+!s100 n3I8X90PNnTV7^AU:Y@973
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Etestintro
+Z16 w1523497757
+R1
+R2
+R3
+R4
+R5
+R6
+Z17 8P:/Microprocessors/Labs/Lab 1/tintro.vhd
+Z18 FP:/Microprocessors/Labs/Lab 1/tintro.vhd
+l0
+L7
+VB;g?2S4VTRFASLL^bOeNV3
+!s100 F29C<E@94z;;dEKZFEm2C3
+R9
+32
+R10
+!i10b 1
+Z19 !s108 1523498627.000000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/Labs/Lab 1/tintro.vhd|
+Z21 !s107 P:/Microprocessors/Labs/Lab 1/tintro.vhd|
+!i113 0
+R14
+R15
+Aonly
+R1
+R2
+R3
+R4
+R5
+DEx4 work 9 testintro 0 22 B;g?2S4VTRFASLL^bOeNV3
+l32
+L12
+V39<;UI[C:B@2HnI2>9ci81
+!s100 aN<;SGcJT?C1JVz7>Bj9j1
+R9
+32
+R10
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R14
+R15

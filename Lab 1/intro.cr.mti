@@ -1,0 +1,23 @@
+{P:/Microprocessors/Labs/Lab 1/tintro.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/Labs/Lab 1/tintro.vhd}
+QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity testintro
+-- Compiling architecture only of testintro
+
+} {} {}} {P:/Microprocessors/Labs/Lab 1/introvhdl.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/Labs/Lab 1/introvhdl.vhd}
+QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity intro
+-- Compiling architecture behavior of intro
+
+} {} {}}
