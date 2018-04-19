@@ -1,0 +1,17 @@
+main:
+
+li a0, 15
+    li a1, 10
+    li a2, 5
+    li a3, 2
+    li a4, 18
+    li a5, -3
+    li s0, 0
+    SUB t0, a0, a1
+    MUL t1, a2, a3
+    SUB t2, a4, a5
+    DIV t3, a0, a2
+    ADD t0, t0, t1
+    ADD t0, t0, t2
+    SUB t0, t0, t3
+    MV s0, t0
