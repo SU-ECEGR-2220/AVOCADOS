@@ -1,6 +1,6 @@
-main:
-	li a0, 10
-    li a1, 15
+ main:
+	li a0, 15
+    li a1, 8
     li a2, 6
     
     li a3, 0
@@ -11,7 +11,7 @@ main:
     li t5, -2
     
 	blt a0, a1, part2
-    
+secondcondition:    
     bgt a0, a1, Z2
     ADDi t0, a2, 1
     BEQ t0, t1, Z2
@@ -21,6 +21,7 @@ main:
     j EXIT
     
 part2: bgt a2, t3, Z1
+	ble a2, t3, secondcondition
 
 Z1:	MV a3, t4
 j EXIT
