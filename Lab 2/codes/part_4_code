@@ -1,0 +1,16 @@
+main:
+	addi x9, x8, 0
+    la x11, B
+    li a2, 1 
+    li a3, 2
+    li a4, 4
+    li a5, 8
+    li a6, 16
+    li a7, 5
+    sw a2, 0(x11)
+    sw a3, 4(x11)
+    sw a4, 8(x11)
+    sw a5, 12(x11)
+    sw a6, 16(x11)
+    
+    li t0, 0
