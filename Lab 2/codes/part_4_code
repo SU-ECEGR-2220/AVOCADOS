@@ -1,16 +1,24 @@
 main:
-	addi x9, x8, 0
+.data
+A: .word 0,0,0,0,0
+B: .word 1,2,4,8,16
+iterator: .word 0
+size: .word 4
+
+	la x10, A
     la x11, B
-    li a2, 1 
-    li a3, 2
-    li a4, 4
-    li a5, 8
-    li a6, 16
-    li a7, 5
-    sw a2, 0(x11)
-    sw a3, 4(x11)
-    sw a4, 8(x11)
-    sw a5, 12(x11)
-    sw a6, 16(x11)
+    lw x12, iterator
+    lw x13, size
+
+while:    
+    beq x12, x13, next
+    slli x14, x12, 2
+    add x14, x14, x11
+    lw x15, 0(x14)
     
-    li t0, 0
+    
+    
+    
+
+next:
+    
