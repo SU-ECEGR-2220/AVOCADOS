@@ -1,10 +1,10 @@
-main:
 .data
 A: .word 0,0,0,0,0
 B: .word 1,2,4,8,16
 iterator: .word 0
 size: .word 4
 
+main:
 	la x10, A
     la x11, B
     lw x12, iterator
@@ -13,12 +13,29 @@ size: .word 4
 while:    
     beq x12, x13, next
     slli x14, x12, 2
+    add x16, x14, zero
     add x14, x14, x11
     lw x15, 0(x14)
+    addi x15, x15, -1
+    add x16, x16, x10
+    sw x15, 0(x16)
+    addi x12, x12, 1
+    j while
     
+next: addi x12, x12, -1
+li t0, -1
+loop: beq x12, t0, Exit 
+    slli x14, x12, 2
+    add x16, x14, zero
+    add x14, x14, x11
+    lw x15, 0(x14)
+    add x16, x16, x10
+    lw x17, 0(x16)
+    add x15, x15, x17
+    add x15, x15, x15
+    sw x15, 0(x14)
+    addi x12, x12, -1
+    j loop
     
-    
-    
+Exit:
 
-next:
-    
