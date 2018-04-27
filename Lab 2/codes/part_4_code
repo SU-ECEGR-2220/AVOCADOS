@@ -2,8 +2,9 @@
 A: .word 0,0,0,0,0
 B: .word 1,2,4,8,16
 iterator: .word 0
-size: .word 4
+size: .word 5
 
+.text
 main:
 	la x10, A
     la x11, B
@@ -24,16 +25,18 @@ while:
     
 next: addi x12, x12, -1
 li t0, -1
+la x10, A
+la x11, B
 loop: beq x12, t0, Exit 
-    slli x14, x12, 2
-    add x16, x14, zero
-    add x14, x14, x11
-    lw x15, 0(x14)
-    add x16, x16, x10
-    lw x17, 0(x16)
-    add x15, x15, x17
-    add x15, x15, x15
-    sw x15, 0(x14)
+    slli x14, x12, 2  # = i*4
+    add x16, x14, zero  # x16 = x14
+    add x14, x14, x11 # address of B + (i*4) gives the address of B[i]
+    lw x15, 0(x14) # put b[i] into x15
+    add x16, x16, x10 #x16 gets address of a[i]
+    lw x17, 0(x16) # x17 gets a[i]
+    add x15, x15, x17 # x15 + x17 = x15
+    add x15, x15, x15 # x15 + x15 = x15
+    sw x15, 0(x16) #put x15 into a[i]
     addi x12, x12, -1
     j loop
     
