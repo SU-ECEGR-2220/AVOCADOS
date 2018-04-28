@@ -1,9 +1,17 @@
- main:
-	li a0, 15
-    li a1, 8
-    li a2, 6
-    
-    li a3, 0
+.data
+A: .word 10
+B: .word 15
+C: .word 6
+Z: .word 0
+ 
+  
+   
+.text    
+main:
+	la a0, A
+    la a1, B
+    la a2, C
+    la a3, Z
     li t1, 7
     li t2, -3
     li t3, 5
@@ -16,16 +24,16 @@ secondcondition:
     ADDi t0, a2, 1
     BEQ t0, t1, Z2
     
-    MV a3, t2
+    sw t2, 0(a3)
     
     j EXIT
     
 part2: bgt a2, t3, Z1
 	ble a2, t3, secondcondition
 
-Z1:	MV a3, t4
+Z1:	sw t4, 0(a3)
 j EXIT
-Z2:	MV a3, t5
+Z2:	sw t5, 0(a3)
 j EXIT
 
 EXIT: 

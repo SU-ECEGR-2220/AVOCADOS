@@ -1,6 +1,12 @@
-main:
+.data
 
-li a0, 15
+Z: .word 0
+
+
+.text
+main:
+    la a6, Z
+    li a0, 15
     li a1, 10
     li a2, 5
     li a3, 2
@@ -14,4 +20,4 @@ li a0, 15
     ADD t0, t0, t1
     ADD t0, t0, t2
     SUB t0, t0, t3
-    MV s0, t0
+    sw t0, 0(a6)

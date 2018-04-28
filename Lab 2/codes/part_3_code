@@ -1,6 +1,14 @@
+.data
+.data
+Z: .word 2
+i: .word 0
+
+
+
+.text
 main:
-	li a0, 2
-    li a1, 0
+    la a0, Z
+    la a1, i
     li t0, 22
     li t1, 100
     li t2, 0
@@ -21,7 +29,8 @@ SetC:
 	beq a1, t2, EXIT
     sub a0, a0, t3
     sub a1, a1, t3
-    
+    sw a0, 0(a0)
+    sw a1, 0(a1)
     j SetC
     
     
