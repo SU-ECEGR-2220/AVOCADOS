@@ -101,6 +101,13 @@ end entity register32;
 architecture biggermem of register32 is
 	-- hint: you'll want to put register8 as a component here 
 	-- so you can use it below
+	component register8
+		port(datain: in std_logic_vector(7 downto 0);
+			enout: in std_logic;
+			writein: in std_logic;
+			dataout: out std_logic_vector(7 downto 0));
+	end component;
+
 begin
 	-- insert code here.
 end architecture biggermem;
