@@ -123,6 +123,12 @@ architecture calc of adder_subtracter is
 
 begin
 	-- insert code here.
+	with add_sub select
+		result <= not(datain_b) when '1',
+				datain_b when others;
+	case1: for i in 0 to 31 generate --in case of adding 32 bits
+	do: fulladder port map (datain_a(i),result(i)) --do this 
+
 end architecture calc;
 
 --------------------------------------------------------------------------------
