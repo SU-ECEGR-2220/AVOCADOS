@@ -145,10 +145,11 @@ begin
 		db <= 	datain_b when '0',  		-- db = B when add
 			not(datain_b) when others;	-- db = -B when subtract
 	c(0) <= add_sub;
-	
+	co <= c(32); -- data in 32th-bit-carry is carryout
+ 
 	-- create loop to run fulladder component
 	add32: for i in 0 to 31 generate
-	f: fulladder port map (datain_a(i),db(i),c(i),dataout(i),carry);
+	f: fulladder port map (datain_a(i),db(i),c(i),dataout(i),c(i+1));
 	end generate;
 
 	

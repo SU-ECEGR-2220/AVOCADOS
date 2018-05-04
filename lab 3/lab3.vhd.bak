@@ -141,7 +141,16 @@ architecture calc of adder_subtracter is
 	signal c: std_logic_vector(32 downto 0);
 
 begin
-	-- insert code here.
+	with add_sub select
+		db <= 	datain_b when '0',  		-- db = B when add
+			not(datain_b) when others;	-- db = -B when subtract
+	c(0) <= add_sub;
+	
+	-- create loop to run fulladder component
+	add32: for i in 0 to 31 generate
+	f: fulladder port map (datain_a(i),db(i),c(i),dataout(i),carry);
+	end generate;
+
 	
 end architecture calc;
 
