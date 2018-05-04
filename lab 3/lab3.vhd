@@ -107,6 +107,13 @@ architecture biggermem of register32 is
 		     writein: in std_logic;
 		     dataout: out std_logic_vector(7 downto 0));
 	end component;
+
+	signal enout32: std_logic;
+	signal enout16: std_logic;
+	signal enout8: std_logic;
+	signal writein32: std_logic;
+	signal writein16: std_logic;
+	signal writein8: std_logic;
 begin
 	-- insert code here.
 	register0: register8 port map (datain(7 downto 0), enout, writein, dataout(7 downto 0));
