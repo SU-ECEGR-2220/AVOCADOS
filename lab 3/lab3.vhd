@@ -127,15 +127,22 @@ entity adder_subtracter is
 end entity adder_subtracter;
 
 architecture calc of adder_subtracter is
+	-- insert component
+	component fulladder
+		port (a: in std_logic;
+		      b: in std_logic;
+		      cin: in std_logic;
+		      sum: out std_logic;
+		      carry: out std_logic);
+	end component;
+
+	-- creating signal for data of b and carries
+	signal db: std_logic_vector(31 downto 0);
+	signal c: std_logic_vector(32 downto 0);
 
 begin
 	-- insert code here.
-	with add_sub select
-		result <= not(datain_b) when '1',
-				datain_b when others;
-	case1: for i in 0 to 31 generate --in case of adding 32 bits
-	do: fulladder port map (datain_a(i),result(i)) --do this 
-
+	
 end architecture calc;
 
 --------------------------------------------------------------------------------
