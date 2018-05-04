@@ -54,26 +54,26 @@ R13
 R14
 R15
 Ebitstorage
-R0
+Z16 w1525452388
 R1
 R2
 R3
 R4
 R5
-R6
-R7
-R8
+Z17 dP:/Microprocessors/AVOCADOS/lab 3
+Z18 8P:\Microprocessors\AVOCADOS\lab 3\registers.vhd
+Z19 FP:\Microprocessors\AVOCADOS\lab 3\registers.vhd
 l0
 L12
 VdCGWj`@VbHgV172Jg^EQX1
 !s100 WJnIlGlmDL72kEaZWY7LI2
 R9
 32
-R10
+Z20 !s110 1525453044
 !i10b 1
-R11
-R12
-R13
+Z21 !s108 1525453044.000000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:\Microprocessors\AVOCADOS\lab 3\registers.vhd|
+Z23 !s107 P:\Microprocessors\AVOCADOS\lab 3\registers.vhd|
 !i113 0
 R14
 R15
@@ -83,42 +83,42 @@ R2
 R3
 R4
 R5
-DEx4 work 10 bitstorage 0 22 dCGWj`@VbHgV172Jg^EQX1
+Z24 DEx4 work 10 bitstorage 0 22 dCGWj`@VbHgV172Jg^EQX1
 l21
 L19
-V<KY=mN>W^6@>cW`V]6Y^Y2
-!s100 >C<lEnBjkno6BlaBg7zNz3
+Z25 V<KY=mN>W^6@>cW`V]6Y^Y2
+Z26 !s100 >C<lEnBjkno6BlaBg7zNz3
 R9
 32
-R10
+R20
 !i10b 1
-R11
-R12
-R13
+R21
+R22
+R23
 !i113 0
 R14
 R15
 Efulladder
-R0
+R16
 R1
 R2
 R3
 R4
 R5
-R6
-R7
-R8
+R17
+R18
+R19
 l0
 L39
 V=FPW_d1N0HAmBXP_4FHUj0
 !s100 MPWGQOD3M^:9b24Oc4LP:1
 R9
 32
-R10
+R20
 !i10b 1
-R11
-R12
-R13
+R21
+R22
+R23
 !i113 0
 R14
 R15
@@ -128,42 +128,42 @@ R2
 R3
 R4
 R5
-DEx4 work 9 fulladder 0 22 =FPW_d1N0HAmBXP_4FHUj0
+Z27 DEx4 work 9 fulladder 0 22 =FPW_d1N0HAmBXP_4FHUj0
 l49
 L48
-VYAZhA1hLlNW^KgldE^3f01
-!s100 <Eni[?PWcgZ?5R]=[zAgg3
+Z28 VYAZhA1hLlNW^KgldE^3f01
+Z29 !s100 <Eni[?PWcgZ?5R]=[zAgg3
 R9
 32
-R10
+R20
 !i10b 1
-R11
-R12
-R13
+R21
+R22
+R23
 !i113 0
 R14
 R15
 Eregister32
-R0
+R16
 R1
 R2
 R3
 R4
 R5
-R6
-R7
-R8
+R17
+R18
+R19
 l0
-L85
-VPYaRa?TV?fSZa1QiPIOl;0
-!s100 WLDXMoIaDVJULQEE9][:91
+L93
+V;_P@`^0ozhKbnlYO><=_?2
+!s100 9iQJ<GY^<k:U6EQjm59Q=0
 R9
 32
-R10
+R20
 !i10b 1
-R11
-R12
-R13
+R21
+R22
+R23
 !i113 0
 R14
 R15
@@ -188,27 +188,30 @@ R13
 !i113 0
 R14
 R15
+R6
+R8
+R7
 Eregister8
-R0
+R16
 R1
 R2
 R3
 R4
 R5
-R6
-R7
-R8
+R17
+R18
+R19
 l0
 L61
 VCmLjgjT4F;9OEK[DbRco72
 !s100 DGz4Yz>el_lHHIC:Ik3m10
 R9
 32
-R10
+R20
 !i10b 1
-R11
-R12
-R13
+R21
+R22
+R23
 !i113 0
 R14
 R15
@@ -218,18 +221,18 @@ R2
 R3
 R4
 R5
-DEx4 work 9 register8 0 22 CmLjgjT4F;9OEK[DbRco72
+Z30 DEx4 work 9 register8 0 22 CmLjgjT4F;9OEK[DbRco72
 l75
 L68
-VlliTb6^3Y6BH^nJ^G3TH92
-!s100 b?fSCeJHBSRQ]=9nc51=c0
+Z31 VL:I6i`R6niY[D`YSjiohU1
+Z32 !s100 jB[Hb_jFMFVEX=9j5;QKa0
 R9
 32
-R10
+R20
 !i10b 1
-R11
-R12
-R13
+R21
+R22
+R23
 !i113 0
 R14
 R15
@@ -285,20 +288,20 @@ R1
 R2
 R4
 R5
-R6
-Z16 8P:/Microprocessors/AVOCADOS/lab 3/tregisterswclues.vhd
-Z17 FP:/Microprocessors/AVOCADOS/lab 3/tregisterswclues.vhd
+R17
+Z33 8P:/Microprocessors/AVOCADOS/lab 3/tregisterswclues.vhd
+Z34 FP:/Microprocessors/AVOCADOS/lab 3/tregisterswclues.vhd
 l0
 L12
 ViXoQXl2a;kM[chQ:j@fB?1
 !s100 [FQ?dzLOmOKmXoOC5VXHN0
 R9
 32
-R10
+R20
 !i10b 1
-R11
-Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/lab 3/tregisterswclues.vhd|
-Z19 !s107 P:/Microprocessors/AVOCADOS/lab 3/tregisterswclues.vhd|
+R21
+Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/lab 3/tregisterswclues.vhd|
+Z36 !s107 P:/Microprocessors/AVOCADOS/lab 3/tregisterswclues.vhd|
 !i113 0
 R14
 R15
@@ -315,11 +318,11 @@ VkbOe39?Vb]5;FNY]5>AO41
 !s100 zdoKYizBG:HDl<[>DIJn_0
 R9
 32
-R10
+R20
 !i10b 1
-R11
-R18
-R19
+R21
+R35
+R36
 !i113 0
 R14
 R15
