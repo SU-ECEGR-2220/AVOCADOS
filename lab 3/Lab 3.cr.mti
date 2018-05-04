@@ -9,7 +9,7 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Compiling entity testreg_vhd
 -- Compiling architecture behavior of testreg_vhd
 
-} {} {}} {P:/Microprocessors/AVOCADOS/lab 3/registers.vhd} {0 {vcom -work work -2002 -explicit -vopt -stats=none {P:\Microprocessors\AVOCADOS\lab 3\registers.vhd}
+} {} {}} {P:/Microprocessors/AVOCADOS/lab 3/registers.vhd} {0 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/lab 3/registers.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -25,8 +25,12 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Compiling architecture memmy of register8
 -- Compiling entity register32
 -- Compiling architecture biggermem of register32
-** Error: P:\Microprocessors\AVOCADOS\lab 3\registers.vhd(109): (vcom-1136) Unknown identifier "enout".
-** Error: P:\Microprocessors\AVOCADOS\lab 3\registers.vhd(109): (vcom-1136) Unknown identifier "writein".
-** Error: P:\Microprocessors\AVOCADOS\lab 3\registers.vhd(113): VHDL Compiler exiting
+-- Compiling entity adder_subtracter
+-- Compiling architecture calc of adder_subtracter
+-- Compiling entity shift_register
+-- Compiling architecture shifter of shift_register
+** Warning: P:/Microprocessors/AVOCADOS/lab 3/registers.vhd(175): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Error: P:/Microprocessors/AVOCADOS/lab 3/registers.vhd(177): near "'": syntax error
+** Error: P:/Microprocessors/AVOCADOS/lab 3/registers.vhd(185): VHDL Compiler exiting
 
-} {17.0 20.0} {}}
+} {22.0 24.0} {}}
