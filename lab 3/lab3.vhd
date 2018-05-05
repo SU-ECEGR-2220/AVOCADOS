@@ -124,6 +124,7 @@ begin
 	register1: register8 port map (datain(15 downto 8), enout8, writein8, dataout(15 downto 8));
 	register2: register8 port map (datain(23 downto 16), enout_2, writein_2, dataout(23 downto 16));
 	register3: register8 port map (datain(31 downto 24), enout32, writein32, dataout(31 downto 24));
+
 end architecture biggermem;
 
 --------------------------------------------------------------------------------
@@ -188,12 +189,12 @@ begin
 	-- insert code here.
 	with dir & shamt select
 		dataout <= datain(30 downto 0) & '0'   when "000001",
-			   datain(29 downto 0) & '00'  when "000010",
-			   datain(28 downto 0) & '000' when "000011",
+			   datain(29 downto 0) & "00"  when "000010",
+			   datain(28 downto 0) & "000" when "000011",
 
 			   '0'   & datain(31 downto 1) when "100001",
-			   '00'  & datain(31 downto 2) when "100010",
-			   '000' & datain(31 downto 3) when "100011",
+			   "00"  & datain(31 downto 2) when "100010",
+			   "000" & datain(31 downto 3) when "100011",
 			   datain(31 downto 0) when others;
 
 end architecture shifter;
