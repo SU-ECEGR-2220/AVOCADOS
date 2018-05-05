@@ -68,9 +68,9 @@ end entity register8;
 architecture memmy of register8 is
 	component bitstorage
 		port(bitin: in std_logic;
-		 	 enout: in std_logic;
-		 	 writein: in std_logic;
-		 	 bitout: out std_logic);
+		     enout: in std_logic;
+		     writein: in std_logic;
+		     bitout: out std_logic);
 	end component;
 begin
 	-- insert your code here.
@@ -99,17 +99,31 @@ entity register32 is
 end entity register32;
 
 architecture biggermem of register32 is
-	-- hint: you'll want to put register8 as a component here 
-	-- so you can use it below
 	component register8
 		port(datain: in std_logic_vector(7 downto 0);
-			enout: in std_logic;
-			writein: in std_logic;
-			dataout: out std_logic_vector(7 downto 0));
+		     enout:  in std_logic;
+		     writein: in std_logic;
+		     dataout: out std_logic_vector(7 downto 0));
 	end component;
 
+	signal enout_1: std_logic;
+	signal enout_2: std_logic;
+	signal writein_1: std_logic;
+	signal writein_2: std_logic;
 begin
 	-- insert code here.
+	
+	enout_1 <= enout32 and enout16 and enout8;
+	writein_1 <= writein32 or writein16 or writein8;
+
+	enout_2 <= enout32 and enout16;
+	writein_2 <= writein32 or writein16;
+
+
+	register0: register8 port map (datain(7 downto 0), enout_1, writein_1, dataout(7 downto 0));
+	register1: register8 port map (datain(15 downto 8), enout8, writein8, dataout(15 downto 8));
+	register2: register8 port map (datain(23 downto 16), enout_2, writein_2, dataout(23 downto 16));
+	register3: register8 port map (datain(31 downto 24), enout32, writein32, dataout(31 downto 24));
 end architecture biggermem;
 
 --------------------------------------------------------------------------------
@@ -172,6 +186,16 @@ architecture shifter of shift_register is
 	
 begin
 	-- insert code here.
+	with dir & shamt select
+		dataout <= datain(30 downto 0) & '0'   when "000001",
+			   datain(29 downto 0) & '00'  when "000010",
+			   datain(28 downto 0) & '000' when "000011",
+
+			   '0'   & datain(31 downto 1) when "100001",
+			   '00'  & datain(31 downto 2) when "100010",
+			   '000' & datain(31 downto 3) when "100011",
+			   datain(31 downto 0) when others;
+
 end architecture shifter;
 
 
