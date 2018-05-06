@@ -9,16 +9,16 @@ z2
 cModel Technology
 dC:/MentorGraphics/questasim64_10.5e/examples
 T_opt
-!s110 1525553916
-VN_O?596BKfLRP`3=;`b3`0
+!s110 1525646500
+ViYi?5R8QLJO3^:0@RcMXl3
 04 11 8 work testreg_vhd behavior 1
-=1-4437e6bbb0f5-5aee1afa-168-3480
+=1-4437e6bbb0b7-5aef84a2-8b-5a0
 o-quiet -auto_acc_if_foreign -work work +acc
 tCvgOpt 0
 n@_opt
 OL;O;10.5e;63
 Eadder_subtracter
-Z0 w1525553819
+Z0 w1525646484
 Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
@@ -33,9 +33,9 @@ VGlR1iLY2k;Z=O7YlKBKMH2
 !s100 ^Bkm<]>[YAUc[HH;Gec8D2
 Z9 OL;C;10.5e;63
 32
-Z10 !s110 1525553824
+Z10 !s110 1525646490
 !i10b 1
-Z11 !s108 1525553823.000000
+Z11 !s108 1525646489.000000
 Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/lab3.vhd|
 Z13 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/lab3.vhd|
 !i113 0
@@ -185,8 +185,8 @@ R5
 DEx4 work 10 register32 0 22 7`L[O<^LEEjX9T1J43KYP0
 l113
 L101
-VZCBdMg55BV;_G>T<>7kcU0
-!s100 6WUH1WaK]X<0c48IeQmmQ0
+VRX`;:9I9B6`lD;_0Y_eF?0
+!s100 <=3mBW1a8EPdofEhV3eF]2
 R9
 32
 R10
@@ -305,7 +305,7 @@ R9
 32
 R10
 !i10b 1
-Z19 !s108 1525553824.000000
+Z19 !s108 1525646490.000000
 Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/tregisterswclues.vhd|
 Z21 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/tregisterswclues.vhd|
 !i113 0
