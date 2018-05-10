@@ -139,6 +139,7 @@ architecture ALU_Arch of ALU is
 
 begin
 	-- Add ALU VHDL implementation here
+	
 
 end architecture ALU_Arch;
 
