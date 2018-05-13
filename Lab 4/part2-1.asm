@@ -1,8 +1,11 @@
 		.data
 ftemp:		.asciz "Give F temp:"
 ctemp: 		.asciz "C temp:"
-ktemp: 		.asciz "F temp:" 
+ktemp: 		.asciz "\nK temp:" 
 convert: 	.float 273.15
+num1:		.float 5.0
+num2:		.float 9.0
+num3:		.float 32.0
 		.text
 
 main:
@@ -12,7 +15,7 @@ main:
 	li	a7,5			#system call for reading int
 	ecall
 	
-	add	ft0, zero, fa0	#save to f0
+	fmv.s	ft1,f0	#load FP val from memory
 	
 	jal converter		#call function converter
 	
@@ -21,7 +24,9 @@ main:
 	la	a0,ctemp
 	ecall
 	
-	fsw    	fa1,ctemp,t0    # save f10 to Val2
+	fmv.s   fa1,ft6    # save f10 to Val2
+	#fmv.x.s	t1, ft6		# copy FP value to t reg
+	#fsw	fa1, 0(a0)	#store FP val to memory
 	li	a7,2			#system call for printing float fa0 in ascii
 	ecall
 	
@@ -30,22 +35,24 @@ main:
 	la	a0,ktemp
 	ecall
 	
-	fsw    	fa2, ktemp, t0    # save f10 to Val2
+	fmv.s   fa2,ft9    # save f10 to Val2
+	#fmv.x.s	t2, ft9		# copy FP value to t reg
+	#fsw	fa2, 0(a0)	#store FP val to memory
 	li	a7,2			#system call for printing float fa0 in ascii
 	ecall
 	
 	j END
 converter:
-	li	ft1,5.0
-	li	ft2,9.0
-	li	ft3,32.0
+	flw	ft2,num1,t0
+	flw	ft3,num2,t0
+	flw	ft4,num3,t0
 	
-	div	ft1,ft1,ft2 	#t4 = 5/9
-	sub	ft3,ft0,ft3	#t6=ftemp - 32
-	mul	fa1,ft1,ft3	#a1 = ctemp
+	fdiv.s	ft2,ft2,ft3 	#t4 = 5/9
+	fsub.s	ft4,ft1,ft4	#t6=ftemp - 32
+	fmul.s	ft6,ft2,ft4	#a1 = ctemp
 	
-	flw    	ft4,convert, t0     # ft4 = 273.15	
-	add	fa2,fa1,ft4	#ctemp+ 273.15
+	flw    	ft8,convert,t0     # ft4 = 273.15	
+	fadd.s	ft9,ft6,ft8	#ctemp+ 273.15
 	
 	ret
 
