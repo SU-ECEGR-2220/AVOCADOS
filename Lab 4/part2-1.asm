@@ -1,7 +1,7 @@
 		.data
-ftemp:		.asciz "Give F temp:"
-ctemp: 		.asciz "C temp:"
-ktemp: 		.asciz "\nK temp:" 
+ftemp:		.asciz "Give an Fahrenheit temp:"
+ctemp: 		.asciz "Celsius temperature is:"
+ktemp: 		.asciz "\nKelvin temperature is:" 
 convert: 	.float 273.15
 num1:		.float 5.0
 num2:		.float 9.0
@@ -9,37 +9,35 @@ num3:		.float 32.0
 		.text
 
 main:
-	li	a7,4			#system call for print string
+	li	a7,4			#system call for print string of ftemp
 	la	a0,ftemp
 	ecall
-	li	a7,5			#system call for reading int
+	li	a7,6			#system call for reading float input
 	ecall
 	
-	fmv.s	ft1,f0	#load FP val from memory
+	fmv.s	ft1,fa0			#ft1 = input
 	
-	jal converter		#call function converter
+	jal converter			#call function converter
 	
-	#Ctemp
+	#Celcius temperature	
+	fmv.s   fa1,ft6    		# save converter's return to fa1
+	fmv.s   fa0,fa1			#move fa1 to fa0 to print
 	
-	
-	fmv.s   fa1,ft6    # save f10 to Val2
-	fmv.s   fa0,fa1
 	li	a7,4			#system call for print string
 	la	a0,ctemp
 	ecall
 	li	a7,2			#system call for printing float fa0 in ascii
 	ecall
 	
-	#Ktemp
+	#Kelvin temperature
 	
-	fmv.s   fa2,ft9    # save f10 to Val2
-	fmv.s   fa0,fa2
+	fmv.s   fa2,ft9    		# save converter's return to fa2
+	fmv.s   fa0,fa2			#move fa2 to fa0 to print
 	
 	li	a7,4			#system call for print string
 	la	a0,ktemp
 	ecall
 	li	a7,2			#system call for printing float fa0 in ascii
-	la	a0,ktemp
 	ecall
 	
 	j END
