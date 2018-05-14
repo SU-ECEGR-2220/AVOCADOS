@@ -5,9 +5,12 @@ test_add:	.word 0
 test_sub:	.word 0
 test_addi:	.word 0
 test_and:	.word 0
+test_andi: .word 0
 test_or:	.word 0
+test ori: .word 0
 test_sll:	.word 0
 test_srl:	.word 0
+imm:		.word 0x00001111
 		.text
 main:
 	lw a0, datain_a
@@ -16,37 +19,48 @@ main:
 	lw s1, test_sub
 	lw s2, test_addi
 	lw s3, test_and
-	lw s4, test_or
-	lw s5, test_sll
-	lw s6, test_srl
+	lw s4, test_andi
+	lw s5, test_or
+	lw s6, test_ori
+	lw s7, test_sll
+	lw s8, test_srl
+	lw t1, imm
 	
 	#test add
 	add s0,a0,a1
-	sw s0, test_add
+	sw s0, test_add, t0
 	
 	#test sub
 	sub s1,a0,a1
-	sw s1,test_sub
+	sw s1,test_sub, t0
 	
 	#test addi
-	addi s2,a0,0x00001111
-	sw s2, test_addi
+	add s2,a0, t1
+	sw s2, test_addi, t0
 	
 	#test and
 	and s3,a0,a1
-	sw s3, test_and
+	sw s3, test_and, t0
 	
+	#test andi
+	and s4, a0, t1
+	sw s4, test_andi, t0
+
 	#test or
-	or s4,a0,a1
-	sw s0, test_or
-	
+	or s5,a0,a1
+	sw s5, test_or, t0
+
+	#test ori
+	or s6, a0, t1
+	sw s6, test_ori, t0	
+
 	#test sll
-	sll s5,a0,1
-	sw s5, test_sll
+	slli s7,a0,1
+	sw s7, test_sll, t0
 	
 	#test srl
-	srl s6,a0,1
-	sw s6, test_srl
+	srli s8,a0,2
+	sw s8, test_srl, t0
 	
 	li a7, 10
 	ecall
