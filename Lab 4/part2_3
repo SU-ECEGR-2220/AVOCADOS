@@ -5,9 +5,9 @@ test_add:	.word 0
 test_sub:	.word 0
 test_addi:	.word 0
 test_and:	.word 0
-test_andi: .word 0
+test_andi: 	.word 0
 test_or:	.word 0
-test ori: .word 0
+test ori: 	.word 0
 test_sll:	.word 0
 test_srl:	.word 0
 imm:		.word 0x00001111
@@ -24,7 +24,6 @@ main:
 	lw s6, test_ori
 	lw s7, test_sll
 	lw s8, test_srl
-	lw t1, imm
 	
 	#test add
 	add s0,a0,a1
@@ -35,7 +34,7 @@ main:
 	sw s1,test_sub, t0
 	
 	#test addi
-	add s2,a0, t1
+	addi s2,a0, 0x00000011
 	sw s2, test_addi, t0
 	
 	#test and
@@ -43,7 +42,7 @@ main:
 	sw s3, test_and, t0
 	
 	#test andi
-	and s4, a0, t1
+	andi s4, a0, 0x00000011
 	sw s4, test_andi, t0
 
 	#test or
@@ -51,7 +50,7 @@ main:
 	sw s5, test_or, t0
 
 	#test ori
-	or s6, a0, t1
+	ori s6, a0, 0x00000011
 	sw s6, test_ori, t0	
 
 	#test sll
