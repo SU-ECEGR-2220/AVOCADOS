@@ -57,9 +57,9 @@ BEGIN
 
 		-- Add test cases here to drive the ALU implementation
 		datain_a <= X"01234567";	-- DataIn in hex
-		datain_b <= X"00001111";
+		datain_b <= X"00000011";
 		control <= "00000";		-- Control in binary (ADDI test)
-		wait for 20 ns;			-- expect result = 0x01235678 and zeroOut = 0 at 120ns
+		wait for 20 ns;			-- expect result = 0x01234578 and zeroOut = 0 at 120ns
 		
 		datain_a <= X"01234567";	-- DataIn in hex
 		datain_b <= X"11223344";
@@ -72,9 +72,9 @@ BEGIN
 		wait for 20 ns; 		-- expect result = 0x01220144  and zeroOut = 0 at 160ns
 		
 		datain_a <= X"01234567";	-- DataIn in hex	
-		datain_b <= X"00001111";
+		datain_b <= X"00000011";
 		control  <= "00010";		-- Control in binary (ANDI test)
-		wait for 20 ns; 		-- expect result = 0x00000101  and zeroOut = 0 at 180ns
+		wait for 20 ns; 		-- expect result = 0x00000001  and zeroOut = 0 at 180ns
 	
 		datain_a <= X"01234567";	-- DataIn in hex
 		datain_b <= X"11223344";
@@ -82,9 +82,9 @@ BEGIN
 		wait for 20 ns; 		-- expect result = 0x11237767  and zeroOut = 0 at 200ns
 
 		datain_a <= X"01234567";	-- DataIn in hex
-		datain_b <= X"00001111";
+		datain_b <= X"00000011";
 		control  <= "00011"; 		-- Control in binary (ORI test)
-		wait for 20 ns; 		-- expect result = 0x01235577  and zeroOut = 0 at 220ns
+		wait for 20 ns; 		-- expect result = 0x01234577  and zeroOut = 0 at 220ns
 
 		datain_a <= X"01234567";	-- DataIn in hex
 		datain_b <= X"00000040";	-- in binary: 0000 0000 0000 0000 0000 0"000 01"00 0000
