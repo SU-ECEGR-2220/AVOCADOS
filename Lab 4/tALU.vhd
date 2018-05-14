@@ -58,35 +58,43 @@ BEGIN
 		-- Add test cases here to drive the ALU implementation
 		datain_a <= X"01234567";
 		datain_b <= X"00001111";
-		control <= "00000";			--ADDI test
-		wait for 20 ns;			--expect result = 0x01235678 and zeroOut = 0 at 139ns
+		control <= "00000";		-- Control in binary (ADDI test)
+		wait for 20 ns;			-- expect result = 0x01235678 and zeroOut = 0 at 139ns
 		
 		datain_a <= X"01234567";
 		datain_b <= X"11223344";
-		control <= "00100";			--SUB test
-		wait for 20 ns; 		--expect result = 0xF0011223  and zeroOut = 0 at 159ns
+		control <= "00100";		-- Control in binary (SUB test)
+		wait for 20 ns; 		-- expect result = 0xF0011223  and zeroOut = 0 at 159ns
 
-		datain_a <= X"01234567";		-- AND test
+		datain_a <= X"01234567";	
 		datain_b <= X"11223344";
-		control  <= "00010";
-		wait for 20 ns; 		--expect result = 0x01220144  and zeroOut = 0 at 199ns
+		control  <= "00010";		-- Control in binary (AND test)
+		wait for 20 ns; 		-- expect result = 0x01220144  and zeroOut = 0 at 179ns
 		
-		datain_a <= X"01234567";		-- ANDI test
+		datain_a <= X"01234567";	
 		datain_b <= X"00001111";
-		control  <= "00010";
-		wait for 20 ns; 		--expect result = 0x01220144  and zeroOut = 0 at 219ns
+		control  <= "00010";		-- Control in binary (ANDI test)
+		wait for 20 ns; 		-- expect result = 0x01220144  and zeroOut = 0 at 179ns
 	
 		datain_a <= X"01234567";	-- DataIn in hex
 		datain_b <= X"11223344";
-		control  <= "00011"; 		--OR test
-		wait for 20 ns; 		--expect result = 0x11237767  and zeroOut = 0 at 239ns
+		control  <= "00011"; 		-- Control in binary (OR test)
+		wait for 20 ns; 		-- expect result = 0x11237767  and zeroOut = 0 at 219ns
 
 		datain_a <= X"01234567";	-- DataIn in hex
 		datain_b <= X"00001111";
-		control  <= "00011"; 		--ORI test
-		wait for 20 ns; 		--expect result = 0x01235577  and zeroOut = 0 at 259ns
+		control  <= "00011"; 		-- Control in binary (ORI test)
+		wait for 20 ns; 		-- expect result = 0x01235577  and zeroOut = 0 at 239ns
 
+		datain_a <= X"01234567";	-- DataIn in hex
+		datain_b <= X"00000040";	-- in binary: 0000 0000 0000 0000 0000 0"000 01"00 0000
+		control  <= "00001";		-- SLL TEST (SHIFT LEFT by 1)
+		wait for 20 ns; 		-- expect result = 0x02468ACE  and zeroOut = 0 at 259ns
 		
+		datain_a <= X"01234567";	-- DataIn in hex
+		datain_b <= X"00000080";	-- in binary: 0000 0000 0000 0000 0000 0"000 10"00 0000
+		control  <= "01001";		-- SRL test (SHIFT RIGHT by 2)
+		wait for 20 ns; 		-- expect result = 0x0048D159  and zeroOut = 0 at 279ns
 		
 
 		wait; -- will wait forever
