@@ -176,7 +176,19 @@ architecture remember of Registers is
 	
 begin
     -- Add your code here for the Register Bank implementation
+	X0 <= (others => '0');
 
+	A0: register32 PORT MAP(WriteData, '0', '1', '1', 
+	A1: register32 PORT MAP(WriteData, '0', '1', '1',
+	A2: register32 PORT MAP(WriteData, '0', '1', '1',
+	A3: register32 PORT MAP(WriteData, '0', '1', '1',
+	A4: register32 PORT MAP(WriteData, '0', '1', '1',
+	A5: register32 PORT MAP(WriteData, '0', '1', '1',
+	A6: register32 PORT MAP(WriteData, '0', '1', '1',
+	A7: register32 PORT MAP(WriteData, '0', '1', '1',
+
+	
+	
 end remember;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
