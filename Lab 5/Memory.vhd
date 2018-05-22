@@ -139,11 +139,23 @@ begin
     if falling_edge(Clock) then
 	-- Add code to write data to RAM
 	-- Use to_integer(unsigned(Address)) to index the i_ram array
-	
+	if (WE = '1') then
+		if (to_integer(unsigned(Address)) < 128) then
+			i_ram(to_integer(unsigned(Address))) <= DataIn;
+		end if;
+	end if;	
     end if;
 
 	-- Rest of the RAM implementation
-
+	if rising_edge(Clock) then
+	if (OE = '0') then
+		if (to_integer(unsigned(Address)) < 128) then
+			DataOut <= i_ram(to_integer(unsigned(Address)));
+		else
+			DataOut <= X"ZZZZZZZZ"; 
+		end if;
+	end if;
+	end if;
   end process RamProc;
 
 end staticRAM;	

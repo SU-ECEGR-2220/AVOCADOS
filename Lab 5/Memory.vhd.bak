@@ -139,7 +139,11 @@ begin
     if falling_edge(Clock) then
 	-- Add code to write data to RAM
 	-- Use to_integer(unsigned(Address)) to index the i_ram array
-	
+	if (WE = '1') then
+		if (to_integer(unsigned(Address)) < 128) then
+			i_ram(to_integer(unsigned(Address))) <= DataIn;
+		end if;
+	end if;	
     end if;
 
 	-- Rest of the RAM implementation
@@ -155,7 +159,7 @@ Use ieee.std_logic_1164.all;
 Use ieee.numeric_std.all;
 Use ieee.std_logic_unsigned.all;
 
-00entity Registers is
+entity Registers is
     Port(ReadReg1: in std_logic_vector(4 downto 0); 
          ReadReg2: in std_logic_vector(4 downto 0); 
          WriteReg: in std_logic_vector(4 downto 0);
