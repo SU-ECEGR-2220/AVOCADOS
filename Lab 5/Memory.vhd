@@ -138,10 +138,24 @@ begin
     if falling_edge(Clock) then
 	-- Add code to write data to RAM
 	-- Use to_integer(unsigned(Address)) to index the i_ram array
+	if (WE = '1') then
+		if (to_integer(unsigned(Address)) < 128) then
+			i_ram(to_integer(unsigned(Address))) <= DataIn;
+		end if;
+	end if;	
 	
     end if;
 
 	-- Rest of the RAM implementation
+if rising_edge(Clock) then
+	if (OE = '0') then
+		if (to_integer(unsigned(Address)) < 128) then
+			DataOut <= i_ram(to_integer(unsigned(Address)));
+		else
+			DataOut <= X"ZZZZZZZZ"; 
+		end if;
+	end if;
+	end if;
 
   end process RamProc;
 
@@ -174,6 +188,46 @@ architecture remember of Registers is
 	
 begin
     -- Add your code here for the Register Bank implementation
+WITH WriteCmd & WriteReg SELECT WRITETHIS <= "00000001" when "101010",
+						"00000010" when "101011",
+						"00000100" when "101100",
+						"00001000" when "101101",
+						"00010000" when "101110",
+						"00100000" when "101111",
+						"01000000" when "110000",
+						"10000000" when "110001",
+						"00000000" when OTHERS; 
+
+	X0 <= (others => '0');
+
+ 	ALMOST: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(0), '1', '1', A0); 
+	DONE: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(1), '1', '1', A1); 
+	WTIH_: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(2), '1', '1', A2); 
+	THIS: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(3), '1', '1', A3); 
+	LAB: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(4), '1', '1', A4); 
+	IM: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(5), '1', '1', A5); 
+	SO: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(6), '1', '1', A6); 
+	HAPPY: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(7), '1', '1', A7); 
+
+	WITH ReadReg1 SELECT ReadData1 <= A0 when "01010"
+					A1 when "01011",
+					A2 when "01100",
+					A3 when "01101",
+					A4 when "01110",
+					A5 when "01111",
+					A6 when "10000",
+					A7 when "10001",
+					X0 when others;
+
+	WITH ReadReg1 SELECT ReadData2 <= A0 when "01010"
+					A1 when "01011",
+					A2 when "01100",
+					A3 when "01101",
+					A4 when "01110",
+					A5 when "01111",
+					A6 when "10000",
+					A7 when "10001",
+					X0 when others;
 
 end remember;
 
