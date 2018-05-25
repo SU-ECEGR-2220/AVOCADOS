@@ -132,7 +132,7 @@ begin
   begin
     if Reset = '1' then
       for i in 0 to 127 loop   
-          i_ram(i) <= X"00000000";
+          i_ram(i) <= "00000000000000000000000000000000";
       end loop;
     end if;
 

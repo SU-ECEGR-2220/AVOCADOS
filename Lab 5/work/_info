@@ -7,283 +7,293 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-dC:/MentorGraphics/questasim64_10.5e/examples
+Z0 dC:/MentorGraphics/questasim64_10.5e/examples
 T_opt
-!s110 1527118944
-VdjT]CXd=:m6HI<V]:j1zN1
-04 11 8 work tmemory_vhd behavior 1
-=1-4437e6bbb0c0-5b05fc5f-12c-34b0
+!s110 1527228213
+V5NkH57bh0zC6G6:MIzfGD3
+Z1 04 11 8 work tmemory_vhd behavior 1
+=1-4437e6bbb0b7-5b07a732-41-36dc
 o-quiet -auto_acc_if_foreign -work work +acc
-tCvgOpt 0
+Z2 tCvgOpt 0
 n@_opt
-OL;O;10.5e;63
+Z3 OL;O;10.5e;63
+R0
+T_opt1
+!s110 1527230820
+VCLeWkFkiZE4^8HE<j7;J;1
+R1
+=1-4437e6bbb0b7-5b07b164-1ab-3608
+o-quiet -auto_acc_if_foreign -work work
+R2
+n@_opt1
+R3
 Ebitstorage
-Z0 w1527118905
-Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z6 dP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5
-Z7 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd
-Z8 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd
+Z4 w1527228195
+Z5 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z6 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z7 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z8 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z9 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z10 dP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5
+Z11 8P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 5\Memory.vhd
+Z12 FP:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 5\Memory.vhd
 l0
 L12
 VdCGWj`@VbHgV172Jg^EQX1
 !s100 WJnIlGlmDL72kEaZWY7LI2
-Z9 OL;C;10.5e;63
+Z13 OL;C;10.5e;63
 32
-Z10 !s110 1527118910
+Z14 !s110 1527230804
 !i10b 1
-Z11 !s108 1527118909.000000
-Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd|
-Z13 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd|
+Z15 !s108 1527230804.000000
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 5\Memory.vhd|
+Z17 !s107 P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 5\Memory.vhd|
 !i113 0
-Z14 o-work work -2002 -explicit
-Z15 tExplicit 1 CvgOpt 0
+Z18 o-work work -2002 -explicit
+Z19 tExplicit 1 CvgOpt 0
 Amemlike
-R1
-R2
-R3
-R4
 R5
+R6
+R7
+R8
+R9
 DEx4 work 10 bitstorage 0 22 dCGWj`@VbHgV172Jg^EQX1
 l21
 L19
 V<KY=mN>W^6@>cW`V]6Y^Y2
 !s100 >C<lEnBjkno6BlaBg7zNz3
-R9
-32
-R10
-!i10b 1
-R11
-R12
 R13
-!i113 0
+32
 R14
+!i10b 1
 R15
+R16
+R17
+!i113 0
+R18
+R19
 Eram
-R0
-R1
-R2
-R3
 R4
 R5
 R6
 R7
 R8
+R9
+R10
+R11
+R12
 l0
 L113
 V<m]NTH9jMGS?[`FKJ>X062
 !s100 UPb[E<_dfb:S85h;R61kZ0
-R9
-32
-R10
-!i10b 1
-R11
-R12
 R13
-!i113 0
+32
 R14
+!i10b 1
 R15
+R16
+R17
+!i113 0
+R18
+R19
 Astaticram
-R1
-R2
-R3
-R4
 R5
+R6
+R7
+R8
+R9
 DEx4 work 3 ram 0 22 <m]NTH9jMGS?[`FKJ>X062
 l128
 L123
-V897=Y_]nK1E6nafd<B`kA0
-!s100 OG7Dhmi0H@8e;Uf1i4ZV81
-R9
-32
-R10
-!i10b 1
-R11
-R12
+V>Az7X@g]6ZBif];1Ih_6H3
+!s100 7QJg6Y[lG4aeUaWImZHDX1
 R13
-!i113 0
+32
 R14
+!i10b 1
 R15
+R16
+R17
+!i113 0
+R18
+R19
 Eregister32
-R0
-R1
-R2
-R3
 R4
 R5
 R6
 R7
 R8
+R9
+R10
+R11
+R12
 l0
 L72
 V;E^Zce<VRgBC=S@AY=B`Y1
 !s100 QnHlBKbPkibdOFHS`hXDc1
-R9
-32
-R10
-!i10b 1
-R11
-R12
 R13
-!i113 0
+32
 R14
+!i10b 1
 R15
+R16
+R17
+!i113 0
+R18
+R19
 Abiggermem
-R1
-R2
-R3
-R4
 R5
+R6
+R7
+R8
+R9
 DEx4 work 10 register32 0 22 ;E^Zce<VRgBC=S@AY=B`Y1
 l91
 L79
 VQ`OQ?MnD984_L<SS=AS^?0
 !s100 :B77^6RM4VIBj_nlGDe3J3
-R9
-32
-R10
-!i10b 1
-R11
-R12
 R13
-!i113 0
+32
 R14
+!i10b 1
 R15
+R16
+R17
+!i113 0
+R18
+R19
 Eregister8
-R0
-R1
-R2
-R3
 R4
 R5
 R6
 R7
 R8
+R9
+R10
+R11
+R12
 l0
 L39
 VM>gW4U`3miQO5coAMgM`73
 !s100 Dd[Cf86T0?EZiOM=bgl[@0
-R9
-32
-R10
-!i10b 1
-R11
-R12
 R13
-!i113 0
+32
 R14
+!i10b 1
 R15
+R16
+R17
+!i113 0
+R18
+R19
 Amemmy
-R1
-R2
-R3
-R4
 R5
+R6
+R7
+R8
+R9
 DEx4 work 9 register8 0 22 M>gW4U`3miQO5coAMgM`73
 l53
 L46
 V2>ddYB8HW]PB_>Q7gYzHi3
 !s100 i2UlC[z9i4^lT<j;<ThJm2
-R9
-32
-R10
-!i10b 1
-R11
-R12
 R13
-!i113 0
+32
 R14
+!i10b 1
 R15
+R16
+R17
+!i113 0
+R18
+R19
 Eregisters
-R0
-R1
-R2
-R3
 R4
 R5
 R6
 R7
 R8
+R9
+R10
+R11
+R12
 l0
 L170
 V`?W_fK7DRg:BCmd2@GEE51
 !s100 ]?BZUSc9HBA@L`md65]k`3
-R9
-32
-R10
-!i10b 1
-R11
-R12
 R13
-!i113 0
+32
 R14
+!i10b 1
 R15
+R16
+R17
+!i113 0
+R18
+R19
 Aremember
-R1
-R2
-R3
-R4
 R5
+R6
+R7
+R8
+R9
 DEx4 work 9 registers 0 22 `?W_fK7DRg:BCmd2@GEE51
 l190
 L180
 VHXVCh_9GK9HViVmkUz;ZV1
 !s100 A4HHWdZjOf;iDcDJZSGR@2
-R9
-32
-R10
-!i10b 1
-R11
-R12
 R13
-!i113 0
+32
 R14
+!i10b 1
 R15
+R16
+R17
+!i113 0
+R18
+R19
 Etmemory_vhd
-Z16 w1526514492
-R1
-R2
-R3
-R4
+Z20 w1526514492
 R5
 R6
-Z17 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd
-Z18 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd
+R7
+R8
+R9
+R10
+Z21 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd
+Z22 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd
 l0
 L11
 Vif5Y=^]Ec:KR3FkV4F[JZ3
 !s100 To_T8cL8kc>aMze>51Jo]3
-R9
+R13
 32
-Z19 !s110 1527118909
-!i10b 1
-Z20 !s108 1527118908.000000
-Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd|
-Z22 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd|
-!i113 0
 R14
-R15
+!i10b 1
+Z23 !s108 1527230803.000000
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd|
+Z25 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd|
+!i113 0
+R18
+R19
 Abehavior
-R1
-R2
-R3
-R4
 R5
+R6
+R7
+R8
+R9
 DEx4 work 11 tmemory_vhd 0 22 if5Y=^]Ec:KR3FkV4F[JZ3
 l55
 L14
 VGTARgnQ^>O9cE^H1z4C[D0
 !s100 fo?F7GmY3iS^?45C:`k9[3
-R9
+R13
 32
-R19
-!i10b 1
-R20
-R21
-R22
-!i113 0
 R14
-R15
+!i10b 1
+R23
+R24
+R25
+!i113 0
+R18
+R19
