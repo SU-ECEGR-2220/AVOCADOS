@@ -7,54 +7,63 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-dC:/MentorGraphics/questasim64_10.5e/examples
+Z0 dC:/MentorGraphics/questasim64_10.5e/examples
+T_opt
+!s110 1527702112
+VA?WE8=UEomBT8F>dVG=o=3
+04 11 8 work tmemory_vhd behavior 1
+=1-4437e6bbad0b-5b0ee257-be-20a4
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;10.5e;63
+R0
 Ebitstorage
-Z0 w1527119898
-Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z6 dP:/ECEGR2220/Labs/group/AVOCADOS/Lab 5
-Z7 8P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd
-Z8 FP:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd
+Z1 w1527119898
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z7 dP:/ECEGR2220/Labs/group/AVOCADOS/Lab 5
+Z8 8P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd
+Z9 FP:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd
 l0
 L11
 VW3EnDI@blg]e6OT3lkDaO3
 !s100 2bOl5?]22L5455Ga2E<WT1
-Z9 OL;C;10.5e;63
+Z10 OL;C;10.5e;63
 32
-Z10 !s110 1527119902
+Z11 !s110 1527702812
 !i10b 1
-Z11 !s108 1527119901.000000
-Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd|
-Z13 !s107 P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd|
+Z12 !s108 1527702810.000000
+Z13 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd|
+Z14 !s107 P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd|
 !i113 0
-Z14 o-work work -2002 -explicit
-Z15 tExplicit 1 CvgOpt 0
+Z15 o-work work -2002 -explicit
+Z16 tExplicit 1 CvgOpt 0
 Amemlike
-R1
 R2
 R3
 R4
 R5
-Z16 DEx4 work 10 bitstorage 0 22 W3EnDI@blg]e6OT3lkDaO3
+R6
+Z17 DEx4 work 10 bitstorage 0 22 W3EnDI@blg]e6OT3lkDaO3
 l20
 L18
-Z17 V5X>OHc3b2mWgOVklfY=@20
-Z18 !s100 VgZfJHf3OgXldXLNBdh6n1
-R9
-32
+Z18 V5X>OHc3b2mWgOVklfY=@20
+Z19 !s100 VgZfJHf3OgXldXLNBdh6n1
 R10
-!i10b 1
+32
 R11
+!i10b 1
 R12
 R13
-!i113 0
 R14
+!i113 0
 R15
+R16
 Eram
-R0
 R1
 R2
 R3
@@ -63,43 +72,43 @@ R5
 R6
 R7
 R8
+R9
 l0
 L112
 V49347@o_;UH5D`;[X^U@n0
 !s100 f^na[mn26_bbg;L@e6fDD1
-R9
-32
 R10
-!i10b 1
+32
 R11
+!i10b 1
 R12
 R13
-!i113 0
 R14
+!i113 0
 R15
+R16
 Astaticram
-R1
 R2
 R3
 R4
 R5
-Z19 DEx4 work 3 ram 0 22 49347@o_;UH5D`;[X^U@n0
+R6
+Z20 DEx4 work 3 ram 0 22 49347@o_;UH5D`;[X^U@n0
 l127
 L122
-Z20 VWXAYcY?b5SNlfod9<Ni`L0
-Z21 !s100 UoYcP?Kb]^==_1XPeaRY>2
-R9
-32
+Z21 VWXAYcY?b5SNlfod9<Ni`L0
+Z22 !s100 UoYcP?Kb]^==_1XPeaRY>2
 R10
-!i10b 1
+32
 R11
+!i10b 1
 R12
 R13
-!i113 0
 R14
+!i113 0
 R15
+R16
 Eregister32
-R0
 R1
 R2
 R3
@@ -108,43 +117,43 @@ R5
 R6
 R7
 R8
+R9
 l0
 L71
 Vfd^QVkGHKbFoWIAK_EB0S0
 !s100 S5M24:ITHdARo6_XSHleM2
-R9
-32
 R10
-!i10b 1
+32
 R11
+!i10b 1
 R12
 R13
-!i113 0
 R14
+!i113 0
 R15
+R16
 Abiggermem
-R1
 R2
 R3
 R4
 R5
-Z22 DEx4 work 10 register32 0 22 fd^QVkGHKbFoWIAK_EB0S0
+R6
+Z23 DEx4 work 10 register32 0 22 fd^QVkGHKbFoWIAK_EB0S0
 l92
 L78
-Z23 Voo^LWXd<<UXVd9;KRO3T41
-Z24 !s100 k=Q>^4<T7WjQN;HNmPEdX3
-R9
-32
+Z24 Voo^LWXd<<UXVd9;KRO3T41
+Z25 !s100 k=Q>^4<T7WjQN;HNmPEdX3
 R10
-!i10b 1
+32
 R11
+!i10b 1
 R12
 R13
-!i113 0
 R14
+!i113 0
 R15
+R16
 Eregister8
-R0
 R1
 R2
 R3
@@ -153,43 +162,43 @@ R5
 R6
 R7
 R8
+R9
 l0
 L38
 VN9lM^Pn?AZBoFk98H833V0
 !s100 dNZ>1elYJd]m1CNi8EhCS3
-R9
-32
 R10
-!i10b 1
+32
 R11
+!i10b 1
 R12
 R13
-!i113 0
 R14
+!i113 0
 R15
+R16
 Amemmy
-R1
 R2
 R3
 R4
 R5
-Z25 DEx4 work 9 register8 0 22 N9lM^Pn?AZBoFk98H833V0
+R6
+Z26 DEx4 work 9 register8 0 22 N9lM^Pn?AZBoFk98H833V0
 l52
 L45
-Z26 VQ>nJj[OZ23EA<CJMXUz2U1
-Z27 !s100 Ee:4=FLRR0^VIiI;oSR7L1
-R9
-32
+Z27 VQ>nJj[OZ23EA<CJMXUz2U1
+Z28 !s100 Ee:4=FLRR0^VIiI;oSR7L1
 R10
-!i10b 1
+32
 R11
+!i10b 1
 R12
 R13
-!i113 0
 R14
+!i113 0
 R15
+R16
 Eregisters
-R0
 R1
 R2
 R3
@@ -198,38 +207,84 @@ R5
 R6
 R7
 R8
+R9
 l0
 L171
 VG2CAVUFCkOl1GaYzjV8C31
 !s100 <g2j;1;LVz3VM_?SFjo?Y2
-R9
-32
 R10
-!i10b 1
+32
 R11
+!i10b 1
 R12
 R13
-!i113 0
 R14
+!i113 0
 R15
+R16
 Aremember
-R1
 R2
 R3
 R4
 R5
-DEx4 work 9 registers 0 22 G2CAVUFCkOl1GaYzjV8C31
+R6
+Z29 DEx4 work 9 registers 0 22 G2CAVUFCkOl1GaYzjV8C31
 l192
 L181
-VC>99NW814_8:[<endBY[j0
-!s100 K>7M]iU;678MVT`;a=0VK1
-R9
-32
+Z30 VC>99NW814_8:[<endBY[j0
+Z31 !s100 K>7M]iU;678MVT`;a=0VK1
 R10
-!i10b 1
+32
 R11
+!i10b 1
 R12
 R13
-!i113 0
 R14
+!i113 0
 R15
+R16
+Etmemory_vhd
+Z32 w1527702790
+R2
+R3
+R4
+R5
+R6
+R7
+Z33 8P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/tMemory.vhd
+Z34 FP:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/tMemory.vhd
+l0
+L11
+Vif5Y=^]Ec:KR3FkV4F[JZ3
+!s100 To_T8cL8kc>aMze>51Jo]3
+R10
+32
+Z35 !s110 1527702803
+!i10b 1
+Z36 !s108 1527702798.000000
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/tMemory.vhd|
+Z38 !s107 P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/tMemory.vhd|
+!i113 0
+R15
+R16
+Abehavior
+R2
+R3
+R4
+R5
+R6
+DEx4 work 11 tmemory_vhd 0 22 if5Y=^]Ec:KR3FkV4F[JZ3
+l55
+L14
+V:[85jR0hf7fPQ;DdK;j582
+!s100 D_<k[[l3zkzm@j@zz6SP80
+R10
+32
+R35
+!i10b 1
+R36
+R37
+R38
+!i113 0
+R15
+R16
