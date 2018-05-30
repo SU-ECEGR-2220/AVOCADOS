@@ -1,15 +1,4 @@
-{P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/tMemory.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/tMemory.vhd}
-QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity tMemory_vhd
--- Compiling architecture behavior of tMemory_vhd
-
-} {} {}} {P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd}
+{P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -28,5 +17,16 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Compiling entity Registers
 -- Compiling architecture remember of Registers
 ** Warning: P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/Memory.vhd(194): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+
+} {} {}} {P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/tMemory.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/ECEGR2220/Labs/group/AVOCADOS/Lab 5/tMemory.vhd}
+QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tMemory_vhd
+-- Compiling architecture behavior of tMemory_vhd
 
 } {} {}}
