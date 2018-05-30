@@ -190,7 +190,7 @@ BEGIN
 		wait for 5 ns;
 
 		-- Register Bank tests
-		dataIn <= X"11111111";
+		dataIn <= "11111111";
 		WriteReg <= "00000";
 		WriteCmd <= '1';
 		wait for 5 ns;

@@ -104,7 +104,6 @@ begin
 	register3: register8 port map (datain(31 downto 24), enout32, writein32, dataout(31 downto 24));
 end architecture biggermem;
 --------------------------------------------------------------------------------
-
 LIBRARY ieee;
 Use ieee.std_logic_1164.all;
 Use ieee.numeric_std.all;
@@ -132,7 +131,7 @@ begin
   begin
     if Reset = '1' then
       for i in 0 to 127 loop   
-          i_ram(i) <= "00000000000000000000000000000000";
+          i_ram(i) <= X"00000000";
       end loop;
     end if;
 
@@ -144,10 +143,11 @@ begin
 			i_ram(to_integer(unsigned(Address))) <= DataIn;
 		end if;
 	end if;	
+	
     end if;
 
 	-- Rest of the RAM implementation
-	if rising_edge(Clock) then
+if rising_edge(Clock) then
 	if (OE = '0') then
 		if (to_integer(unsigned(Address)) < 128) then
 			DataOut <= i_ram(to_integer(unsigned(Address)));
@@ -156,9 +156,11 @@ begin
 		end if;
 	end if;
 	end if;
+
   end process RamProc;
 
-end staticRAM;
+end staticRAM;	
+
 
 --------------------------------------------------------------------------------
 LIBRARY ieee;
