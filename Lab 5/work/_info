@@ -8,3 +8,282 @@ z2
 !i10f 100
 cModel Technology
 dC:/MentorGraphics/questasim64_10.5e/examples
+T_opt
+!s110 1527699548
+V9izA_hNGkjBA9^GgUoi121
+04 11 8 work tmemory_vhd behavior 1
+=1-4437e6bbb0c2-5b0ed851-1de-fc4
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;10.5e;63
+Ebitstorage
+Z0 w1527699472
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z6 dP:/Microprocessors/AVOCADOS/Lab 5
+Z7 8P:/Microprocessors/AVOCADOS/Lab 5/Memory.vhd
+Z8 FP:/Microprocessors/AVOCADOS/Lab 5/Memory.vhd
+l0
+L12
+VdCGWj`@VbHgV172Jg^EQX1
+!s100 WJnIlGlmDL72kEaZWY7LI2
+Z9 OL;C;10.5e;63
+32
+Z10 !s110 1527699484
+!i10b 1
+Z11 !s108 1527699477.000000
+Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 5/Memory.vhd|
+Z13 !s107 P:/Microprocessors/AVOCADOS/Lab 5/Memory.vhd|
+!i113 0
+Z14 o-work work -2002 -explicit
+Z15 tExplicit 1 CvgOpt 0
+Amemlike
+R1
+R2
+R3
+R4
+R5
+DEx4 work 10 bitstorage 0 22 dCGWj`@VbHgV172Jg^EQX1
+l21
+L19
+V<KY=mN>W^6@>cW`V]6Y^Y2
+!s100 >C<lEnBjkno6BlaBg7zNz3
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Eram
+R0
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+l0
+L113
+V<m]NTH9jMGS?[`FKJ>X062
+!s100 UPb[E<_dfb:S85h;R61kZ0
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Astaticram
+R1
+R2
+R3
+R4
+R5
+DEx4 work 3 ram 0 22 <m]NTH9jMGS?[`FKJ>X062
+l128
+L123
+V>Az7X@g]6ZBif];1Ih_6H3
+!s100 7QJg6Y[lG4aeUaWImZHDX1
+R9
+32
+Z16 !s110 1527699485
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Eregister32
+R0
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+l0
+L72
+V;E^Zce<VRgBC=S@AY=B`Y1
+!s100 QnHlBKbPkibdOFHS`hXDc1
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Abiggermem
+R1
+R2
+R3
+R4
+R5
+DEx4 work 10 register32 0 22 ;E^Zce<VRgBC=S@AY=B`Y1
+l91
+L79
+VQ`OQ?MnD984_L<SS=AS^?0
+!s100 :B77^6RM4VIBj_nlGDe3J3
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Eregister8
+R0
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+l0
+L39
+VM>gW4U`3miQO5coAMgM`73
+!s100 Dd[Cf86T0?EZiOM=bgl[@0
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Amemmy
+R1
+R2
+R3
+R4
+R5
+DEx4 work 9 register8 0 22 M>gW4U`3miQO5coAMgM`73
+l53
+L46
+V2>ddYB8HW]PB_>Q7gYzHi3
+!s100 i2UlC[z9i4^lT<j;<ThJm2
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Eregisters
+R0
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+l0
+L170
+V`?W_fK7DRg:BCmd2@GEE51
+!s100 ]?BZUSc9HBA@L`md65]k`3
+R9
+32
+R16
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Aremember
+R1
+R2
+R3
+R4
+R5
+DEx4 work 9 registers 0 22 `?W_fK7DRg:BCmd2@GEE51
+l190
+L180
+VHXVCh_9GK9HViVmkUz;ZV1
+!s100 A4HHWdZjOf;iDcDJZSGR@2
+R9
+32
+R16
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Etmemory_vhd
+Z17 w1526514067
+R1
+R2
+R3
+R4
+R5
+R6
+Z18 8P:/Microprocessors/AVOCADOS/Lab 5/tMemory.vhd
+Z19 FP:/Microprocessors/AVOCADOS/Lab 5/tMemory.vhd
+l0
+L11
+Vif5Y=^]Ec:KR3FkV4F[JZ3
+!s100 To_T8cL8kc>aMze>51Jo]3
+R9
+32
+Z20 !s110 1527699492
+!i10b 1
+Z21 !s108 1527699488.000000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 5/tMemory.vhd|
+Z23 !s107 P:/Microprocessors/AVOCADOS/Lab 5/tMemory.vhd|
+!i113 0
+R14
+R15
+Abehavior
+R1
+R2
+R3
+R4
+R5
+DEx4 work 11 tmemory_vhd 0 22 if5Y=^]Ec:KR3FkV4F[JZ3
+l55
+L14
+VGTARgnQ^>O9cE^H1z4C[D0
+!s100 fo?F7GmY3iS^?45C:`k9[3
+R9
+32
+R20
+!i10b 1
+R21
+R22
+R23
+!i113 0
+R14
+R15
