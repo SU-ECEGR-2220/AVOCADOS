@@ -16,7 +16,7 @@ end entity BusMux2to1;
 
 architecture selection of BusMux2to1 is
 begin
- -- Add your code here
+-- Add your code here
 end architecture selection;
 
 --------------------------------------------------------------------------------
