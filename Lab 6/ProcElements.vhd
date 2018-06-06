@@ -1,4 +1,4 @@
---------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------
 --
 -- LAB #6 - Processor Elements
 --
@@ -16,7 +16,9 @@ end entity BusMux2to1;
 
 architecture selection of BusMux2to1 is
 begin
- -- Add your code here
+	with selector select
+		Result <= In0 when '0',
+			In1 when others;
 end architecture selection;
 
 --------------------------------------------------------------------------------
@@ -41,6 +43,9 @@ entity Control is
 end Control;
 
 architecture Boss of Control is
+
+signal result: std_logic_vector(10 downto 0);
+signal 
 begin
 -- Add your code here
 
