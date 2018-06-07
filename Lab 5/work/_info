@@ -27,6 +27,7 @@ o-quiet -auto_acc_if_foreign -work work
 R2
 n@_opt1
 R3
+R0
 Ebitstorage
 Z4 w1527228195
 Z5 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
@@ -35,19 +36,19 @@ Z7 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z8 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z9 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 Z10 dP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5
-Z11 8P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 5\Memory.vhd
-Z12 FP:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 5\Memory.vhd
+Z11 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd
+Z12 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd
 l0
 L12
 VdCGWj`@VbHgV172Jg^EQX1
 !s100 WJnIlGlmDL72kEaZWY7LI2
 Z13 OL;C;10.5e;63
 32
-Z14 !s110 1527230804
+Z14 !s110 1527702315
 !i10b 1
-Z15 !s108 1527230804.000000
-Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 5\Memory.vhd|
-Z17 !s107 P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 5\Memory.vhd|
+Z15 !s108 1527702308.000000
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd|
+Z17 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd|
 !i113 0
 Z18 o-work work -2002 -explicit
 Z19 tExplicit 1 CvgOpt 0
@@ -57,11 +58,11 @@ R6
 R7
 R8
 R9
-DEx4 work 10 bitstorage 0 22 dCGWj`@VbHgV172Jg^EQX1
+Z20 DEx4 work 10 bitstorage 0 22 dCGWj`@VbHgV172Jg^EQX1
 l21
 L19
-V<KY=mN>W^6@>cW`V]6Y^Y2
-!s100 >C<lEnBjkno6BlaBg7zNz3
+Z21 V<KY=mN>W^6@>cW`V]6Y^Y2
+Z22 !s100 >C<lEnBjkno6BlaBg7zNz3
 R13
 32
 R14
@@ -102,11 +103,11 @@ R6
 R7
 R8
 R9
-DEx4 work 3 ram 0 22 <m]NTH9jMGS?[`FKJ>X062
+Z23 DEx4 work 3 ram 0 22 <m]NTH9jMGS?[`FKJ>X062
 l128
 L123
-V>Az7X@g]6ZBif];1Ih_6H3
-!s100 7QJg6Y[lG4aeUaWImZHDX1
+Z24 V>Az7X@g]6ZBif];1Ih_6H3
+Z25 !s100 7QJg6Y[lG4aeUaWImZHDX1
 R13
 32
 R14
@@ -147,11 +148,11 @@ R6
 R7
 R8
 R9
-DEx4 work 10 register32 0 22 ;E^Zce<VRgBC=S@AY=B`Y1
+Z26 DEx4 work 10 register32 0 22 ;E^Zce<VRgBC=S@AY=B`Y1
 l91
 L79
-VQ`OQ?MnD984_L<SS=AS^?0
-!s100 :B77^6RM4VIBj_nlGDe3J3
+Z27 VQ`OQ?MnD984_L<SS=AS^?0
+Z28 !s100 :B77^6RM4VIBj_nlGDe3J3
 R13
 32
 R14
@@ -192,11 +193,11 @@ R6
 R7
 R8
 R9
-DEx4 work 9 register8 0 22 M>gW4U`3miQO5coAMgM`73
+Z29 DEx4 work 9 register8 0 22 M>gW4U`3miQO5coAMgM`73
 l53
 L46
-V2>ddYB8HW]PB_>Q7gYzHi3
-!s100 i2UlC[z9i4^lT<j;<ThJm2
+Z30 V2>ddYB8HW]PB_>Q7gYzHi3
+Z31 !s100 i2UlC[z9i4^lT<j;<ThJm2
 R13
 32
 R14
@@ -237,11 +238,11 @@ R6
 R7
 R8
 R9
-DEx4 work 9 registers 0 22 `?W_fK7DRg:BCmd2@GEE51
+Z32 DEx4 work 9 registers 0 22 `?W_fK7DRg:BCmd2@GEE51
 l190
 L180
-VHXVCh_9GK9HViVmkUz;ZV1
-!s100 A4HHWdZjOf;iDcDJZSGR@2
+Z33 VHXVCh_9GK9HViVmkUz;ZV1
+Z34 !s100 A4HHWdZjOf;iDcDJZSGR@2
 R13
 32
 R14
@@ -253,26 +254,26 @@ R17
 R18
 R19
 Etmemory_vhd
-Z20 w1526514492
+Z35 w1526514492
 R5
 R6
 R7
 R8
 R9
 R10
-Z21 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd
-Z22 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd
+Z36 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd
+Z37 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd
 l0
 L11
 Vif5Y=^]Ec:KR3FkV4F[JZ3
 !s100 To_T8cL8kc>aMze>51Jo]3
 R13
 32
-R14
+Z38 !s110 1527702268
 !i10b 1
-Z23 !s108 1527230803.000000
-Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd|
-Z25 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd|
+Z39 !s108 1527702260.000000
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd|
+Z41 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd|
 !i113 0
 R18
 R19
@@ -289,11 +290,11 @@ VGTARgnQ^>O9cE^H1z4C[D0
 !s100 fo?F7GmY3iS^?45C:`k9[3
 R13
 32
-R14
+R38
 !i10b 1
-R23
-R24
-R25
+R39
+R40
+R41
 !i113 0
 R18
 R19

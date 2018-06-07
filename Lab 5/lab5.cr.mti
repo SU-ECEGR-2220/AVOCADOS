@@ -1,4 +1,4 @@
-{P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 5\Memory.vhd}
+{P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -16,9 +16,9 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Compiling architecture staticRAM of RAM
 -- Compiling entity Registers
 -- Compiling architecture remember of Registers
-** Warning: P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 5\Memory.vhd(192): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd(192): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
 
-} {} {}} {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/tMemory.vhd}
+} {} {}} {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -26,7 +26,16 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity tMemory_vhd
--- Compiling architecture behavior of tMemory_vhd
+-- Compiling entity bitstorage
+-- Compiling architecture memlike of bitstorage
+-- Compiling entity register8
+-- Compiling architecture memmy of register8
+-- Compiling entity register32
+-- Compiling architecture biggermem of register32
+-- Compiling entity RAM
+-- Compiling architecture staticRAM of RAM
+-- Compiling entity Registers
+-- Compiling architecture remember of Registers
+** Warning: P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5/Memory.vhd(192): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
 
 } {} {}}
