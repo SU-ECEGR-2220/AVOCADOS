@@ -1,1 +1,23 @@
+{P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd}
+QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity BusMux2to1
+-- Compiling architecture selection of BusMux2to1
+-- Compiling entity Control
+-- Compiling architecture Boss of Control
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(48): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(52): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(55): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(58): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(74): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(77): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(85): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(90): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+-- Compiling entity ProgramCounter
+-- Compiling architecture executive of ProgramCounter
 
+} {} {}}

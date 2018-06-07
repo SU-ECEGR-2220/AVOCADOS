@@ -99,6 +99,10 @@ architecture holistic of Processor is
 
 begin
 	-- Add your code here
+	opcode <= DataOut(4 downto 0);
+	funct3 <= DataOut(14 downto 12);
+	funct7 <= DataOut(31 downto 25);
+	
 	
 end holistic;
 

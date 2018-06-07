@@ -8,3 +8,132 @@ z2
 !i10f 100
 cModel Technology
 dC:/MentorGraphics/questasim64_10.5e/examples
+Ebusmux2to1
+Z0 w1528410649
+Z1 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z5 dP:/Microprocessors/AVOCADOS/Lab 6
+Z6 8P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd
+Z7 FP:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd
+l0
+L11
+VQOQ=6Bb6nbPd6d`C@M2Wo0
+!s100 N144V5D>E9Toc`Eo`oMk00
+Z8 OL;C;10.5e;63
+32
+Z9 !s110 1528412424
+!i10b 1
+Z10 !s108 1528412422.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd|
+Z12 !s107 P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd|
+!i113 0
+Z13 o-work work -2002 -explicit
+Z14 tExplicit 1 CvgOpt 0
+Aselection
+R1
+R2
+R3
+R4
+DEx4 work 10 busmux2to1 0 22 QOQ=6Bb6nbPd6d`C@M2Wo0
+l18
+L17
+VmWg>F[omeVdLGfOGHeLcH3
+!s100 ocjSYJ[5JX]J0T9Y9FDRR0
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Econtrol
+R0
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+l0
+L30
+VCc;[zGRHKI:Ld=EP6CPUm0
+!s100 dVJONDDX^^Yb6_6=111RN3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Aboss
+R1
+R2
+R3
+R4
+DEx4 work 7 control 0 22 Cc;[zGRHKI:Ld=EP6CPUm0
+l46
+L45
+VEmN_kHYjM4Z;ld>9DRgZ:1
+!s100 T1:E?fzH5nQS:0oO?_fTi3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Eprogramcounter
+R0
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+l0
+L109
+V:i^^=j:j=OgBRb0UCnnTb3
+!s100 C4:B:CM13UhK8Qc5eUaU91
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Aexecutive
+R1
+R2
+R3
+R4
+DEx4 work 14 programcounter 0 22 :i^^=j:j=OgBRb0UCnnTb3
+l117
+L116
+VC<80Qima0@aZijXfUm04z0
+!s100 1Vc:PDXemzzVfAkg`j[e^0
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
