@@ -47,7 +47,7 @@ begin
 -- Add your code here
 	WITH opcode & funct3 SELECT Branch <= "01" when "1100011000", --BEQ
 						"10" when "1100011001", --BNE
-						"00" when others;
+						"--" when others;
 	
 	WITH opcode & funct3 SELECT MemRead <= '1' when "0000011010", --LW
 						'0' when others;
@@ -57,6 +57,37 @@ begin
 
 	WITH opcode & funct3 & funct7 SELECT ALUCtrl <= "00000" when "01100110000000000", -- ADD
 							"00100" when "01100110000100000", -- SUB
+							"00010" when "01100111110000000", --AND
+							"00011" when "01100111100000000", -- OR
+							"00001" when "00100110010000000", --SLLI
+							"01001" when "00100111010000000", --SRLI
+							"01110" when "0000011010-------", --LW
+							"00000" when "0010011000-------", --ADDI
+							"00011" when "0010011110-------", --ORI
+							"00010" when "0010011111-------", --ANDI
+							"10101" when "0100011010-------", --SW
+							"10000" when "1100011000-------", --BEQ
+							"01000" when "1100011001-------", --BNE
+							"01111" when "0110111----------", --LUI
+							"11111" when others;
+	
+	WITH opcode & funct3 SELECT MemWrite <= '1' when "0100011010", -- SW
+						'0' when others;
+
+	WITH opcode & funct3 & funct7 SELECT ALUSrc <= '0' when "01100110000000000", --ADD
+							'0' when "01100110001000000", --SUB
+							'0' when "01100111110000000", --AND
+							'0' when "01100111100000000", --OR
+							'0' when "1100011000-------", --BEQ
+							'0' when "1100011001-------", --BNE
+							'1' when others;
+
+	WITH opcode & funct3 SELECT RegWrite <= '0' when "0100011010", -- SW
+						'0' when "1100011000", -- BEQ
+						'0' when "1100011001", --BNE
+						'1' when others;
+
+	WITH opcode & funct3 & funct7 SELECT ImmGen <= 
 end Boss;
 
 --------------------------------------------------------------------------------
@@ -75,6 +106,13 @@ end entity ProgramCounter;
 architecture executive of ProgramCounter is
 begin
 -- Add your code here
-	
+	ProgramCounter: Process(Reset, Clock)
+	begin
+		if reset = '1' then
+			PCout <= X"00400000";
+		elsif (rising_edge(clock)) then
+			PCout <= PCin;
+		end if;
+	end process;
 end executive;
 --------------------------------------------------------------------------------
