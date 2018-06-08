@@ -84,9 +84,22 @@ architecture holistic of Processor is
 			dataout: out std_logic_vector(31 downto 0);
 			co: out std_logic);
 	end component adder_subtracter;
+
 	-- pc signals
 	signal PCin: std_logic_vector(31 downto 0);
 	signal PCout: std_logic_vector(31 downto 0);
+	signal add4_result: std_logic_vector(31 downto 0);
+	signal carryout: std_logic;
+
+	-- output signal from instruction memory
+	signal inst: std_logic_vector(31 downto 0);   -- instructions
+
+	-- registers signals
+	signal write_data: std_logic_vector(31 downto 0);
+	signal read1: std_logic_vector(31 downto 0);
+	signal read2: std_logic_vector(31 downto 0);
+	signal read2_mux1: std_logic_vector(31 downto 0);
+
 
 	-- control signals
 	signal clk: std_logic;
@@ -102,6 +115,24 @@ architecture holistic of Processor is
 	signal RegWrite: std_logic;
 	signal ImmGen: 	 std_logic_vector (1 downto 0);
 
+	-- ImmGen signals
+	signal ImmGen_out: std_logic_vector (31 downto 0);
+
+	-- ALU 1 signals ( ALU under)
+	signal ALU_result: std_logic_vector(31 downto 0);
+	signal zero: std_logic;
+
+	-- Data memory signals:
+	signal read_data: std_logic_vector(31 downto 0);
+
+	-- Branch signals:
+	signal branchOut: std_logic;
+
+	-- ADD2 signals:
+	signal sum: std_logic_vector (31 downto 0);
+	signal carryout_2: std_logic;
+
+
 begin
 	-- Add your code here
 	opcode <= DataOut(4 downto 0);
@@ -109,10 +140,34 @@ begin
 	funct7 <= DataOut(31 downto 25);
 
 	--PC
-	PC: ProgramCounter port map(reset, clock, PCin, PCout);
+	PC: ProgramCounter port map(reset, clk, PCin, PCout);
 
-	-- Control
-	ctrl: Control port map(clk, opcode, funct7, funct3, Branch, MemReg, MemRead, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
+	-- PC add 4:
+	add4: adder_subtracter port map(PCout, X"00000004",'0',add4_result, carryout); -- add --> '0', sub --> '1'
 
-end holistic;
+	--branch off instructions
+		-- Control
+	ctrl: Control port map(clk, inst(6 downto 0), inst(31 downto 25), inst(14 downto 12), Branch, MemReg, MemRead, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
+		-- Registers
+	i_reg: Registers port map(inst(19 downto 15), inst(24 downto 20), inst(11 downto 7), write_data, RegWrite, read1, read2);
+
+	-- MUX 1
+	mux_1: BusMux2to1 port map(ALUSrc, read2, ImmGen_out, read2_mux1);
+	
+	-- ALU
+	alu1: ALU port map(read1, read2_mux1, ALUCtrl, zero, ALU_result);
+	datamemory: RAM port map(reset, clk, MemRead, MemWrite, ALU_result(31 downto 2), read2, read_data);
+	mux_2: BusMux2to1 port map(MemtoReg, ALU_result, read_data, write_data);
+	mux_3: BusMux2to1 port map(branchOut, add4_result, Sum, PCin);
+
+	-- Add2 (ADD --> SUM)
+	addsum: adder_subtracter port map(PCout, ImmGen_out, '0', Sum, carryout_2);
+	
+	-- Branch 
+	with zero&Branch select	
+		branchOut <= '1' when "110" | "111", --------------check check check check check
+				'0' when others;
+
+
+	end holistic;
 
