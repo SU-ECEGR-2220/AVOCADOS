@@ -117,10 +117,6 @@ architecture holistic of Processor is
 	-- ImmGen signals
 	signal ImmGen_out: std_logic_vector (31 downto 0);
 
-	-- ALU 1 signals ( ALU under)
-	signal ALU_result: std_logic_vector(31 downto 0);
-	signal zero: std_logic;
-
 begin
 	-- Add your code here
 
