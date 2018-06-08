@@ -92,6 +92,17 @@ end entity ProgramCounter;
 architecture executive of ProgramCounter is
 begin
 -- Add your code here
-
+process(Clock, Reset)
+	begin
+	if (Reset = '1') then
+		new_address <= X"00400000";
+	end if;
+	if (falling_edge(Clock)) then
+		new_address <= PCin;
+	end if;
+	if (rising_edge(Clock)) then
+		PCOut <= new_address;
+	end if;
+end process;
 end executive;
 --------------------------------------------------------------------------------
