@@ -142,7 +142,7 @@ begin
 
 	--branch off instructions
 		-- Control
-	ctrl: Control port map(clk, inst(6 downto 0), inst(31 downto 25), inst(14 downto 12), Branch, MemReg, MemRead, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
+	ctrl: Control port map(clk, inst(6 downto 0), inst(14 downto 12), inst(31 downto 25), Branch, MemReg, MemRead, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
 		-- Registers
 	i_reg: Registers port map(inst(19 downto 15), inst(24 downto 20), inst(11 downto 7), write_data, RegWrite, read1, read2);
 
@@ -152,7 +152,7 @@ begin
 	-- ALU
 	alu1: ALU port map(read1, read2_mux1, ALUCtrl, zero, ALU_result);
 	datamemory: RAM port map(reset, clk, MemRead, MemWrite, ALU_result(31 downto 2), read2, read_data);
-	mux_2: BusMux2to1 port map(MemtoReg, ALU_result, read_data, write_data);
+	mux_2: BusMux2to1 port map(MemReg, ALU_result, read_data, write_data);
 	mux_3: BusMux2to1 port map(branchOut, add4_result, Sum, PCin);
 
 	-- Add2 (ADD --> SUM)
@@ -166,7 +166,13 @@ begin
 
 	--------- need IMmmGen to produce ImmGen_out signal ----------- GOES HERE --------
 
+	with ImmGen select
+		ImmGen_out 	<= inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 20) when "01", -- I-type
+				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 25)&inst(11 downto 7) when "10", -- S-type
+				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 12) when "11", -- U-type 
+				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 25)&inst(11 downto 7)&'0' when others; --B type
 
 
-end holistic;
+
+end architecture holistic;
 
