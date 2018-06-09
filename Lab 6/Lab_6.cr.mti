@@ -1,4 +1,14 @@
-{P:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd}
+{P:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd}
+QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Processor
+-- Compiling architecture holistic of Processor
+
+} {} {}} {P:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -8,16 +18,6 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package NUMERIC_STD
 -- Compiling entity tProcessor_vhd
 -- Compiling architecture behavior of tProcessor_vhd
-
-} {} {}} {P:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd}
-QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity Processor
--- Compiling architecture holistic of Processor
 
 } {} {}} {P:/Microprocessors/AVOCADOS/Lab 6/InstrMemory.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/InstrMemory.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
@@ -29,28 +29,6 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity InstructionRAM
 -- Compiling architecture instrucRAM of InstructionRAM
-
-} {} {}} {P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd}
-QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity BusMux2to1
--- Compiling architecture selection of BusMux2to1
--- Compiling entity Control
--- Compiling architecture Boss of Control
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(48): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(52): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(55): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(58): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(74): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(77): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(85): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd(90): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
--- Compiling entity ProgramCounter
--- Compiling architecture executive of ProgramCounter
 
 } {} {}} {P:/Microprocessors/AVOCADOS/Master/lab 3/lab3.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Master/lab 3/lab3.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
@@ -74,6 +52,24 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Compiling architecture shifter of shift_register
 ** Warning: P:/Microprocessors/AVOCADOS/Master/lab 3/lab3.vhd(190): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
 
+} {} {}} {P:/Microprocessors/AVOCADOS/Master/Lab 4/ALU.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Master/Lab 4/ALU.vhd}
+QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity fulladder
+-- Compiling architecture addlike of fulladder
+-- Compiling entity adder_subtracter
+-- Compiling architecture calc of adder_subtracter
+-- Compiling entity shift_register
+-- Compiling architecture shifter of shift_register
+** Warning: P:/Microprocessors/AVOCADOS/Master/Lab 4/ALU.vhd(88): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+-- Compiling entity ALU
+-- Compiling architecture ALU_Arch of ALU
+
 } {} {}} {P:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STANDARD
@@ -93,23 +89,5 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Compiling entity Registers
 -- Compiling architecture remember of Registers
 ** Warning: P:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd(192): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
-
-} {} {}} {P:/Microprocessors/AVOCADOS/Master/Lab 4/ALU.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Master/Lab 4/ALU.vhd}
-QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity fulladder
--- Compiling architecture addlike of fulladder
--- Compiling entity adder_subtracter
--- Compiling architecture calc of adder_subtracter
--- Compiling entity shift_register
--- Compiling architecture shifter of shift_register
-** Warning: P:/Microprocessors/AVOCADOS/Master/Lab 4/ALU.vhd(88): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
--- Compiling entity ALU
--- Compiling architecture ALU_Arch of ALU
 
 } {} {}}

@@ -59,16 +59,16 @@ begin
 							"00100" when "01100110000100000", -- SUB
 							"00010" when "01100111110000000", --AND
 							"00011" when "01100111100000000", -- OR
-							"00001" when "00100110010000000", --SLLI
-							"01001" when "00100111010000000", --SRLI
-							"01110" when "0000011010-------", --LW
-							"00000" when "0010011000-------", --ADDI
-							"00011" when "0010011110-------", --ORI
-							"00010" when "0010011111-------", --ANDI
-							"10101" when "0100011010-------", --SW
-							"10000" when "1100011000-------", --BEQ
-							"01000" when "1100011001-------", --BNE
-							"01111" when "0110111----------", --LUI
+							"00-01" when "00100110010000000", --SLLI
+							"01-01" when "00100111010000000", --SRLI
+							"01-10" when "0000011010-------", --LW
+							"0-000" when "0010011000-------", --ADDI
+							"0--11" when "0010011110-------", --ORI
+							"0--10" when "0010011111-------", --ANDI
+							"01-01" when "0100011010-------", --SW
+							"1----" when "1100011000-------", --BEQ
+							"1----" when "1100011001-------", --BNE
+							"00011" when "0110111----------", --LUI
 							"11111" when others;
 	
 	WITH opcode & funct3 SELECT MemWrite <= '1' when "0100011010", -- SW
@@ -114,15 +114,21 @@ entity ProgramCounter is
 end entity ProgramCounter;
 
 architecture executive of ProgramCounter is
+
+	signal new_address: std_logic_vector(31 downto 0);
 begin
 -- Add your code here
-	ProgramCounter: Process(Reset, Clock)
-	begin
-		if reset = '1' then
-			PCout <= X"00400000";
-		elsif (rising_edge(clock)) then
-			PCout <= PCin;
-		end if;
-	end process;
+ProgramCounter: Process(Reset, Clock)
+begin
+	if (Reset = '1') then
+		new_address <= "00000000010000000000000000000000";
+	end if;
+	if (falling_edge(Clock)) then
+		new_address <= PCin;
+	end if;
+	if (rising_edge(Clock)) then
+		PCOut <= new_address;
+	end if;
+end process;	
 end executive;
 --------------------------------------------------------------------------------
