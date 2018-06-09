@@ -96,12 +96,76 @@ architecture holistic of Processor is
 	signal ALUSrc: 	 std_logic;
 	signal RegWrite: std_logic;
 	signal ImmGen: 	 std_logic_vector (1 downto 0);
+	
+	signal PCN:	std_logic_vector(31 downto 0);
+	signal PCO:	std_logic_vector(31 downto 0);
+	
+	signal DOut: 	std_logic_vector(31 downto 0);	
 
+	signal ImmGenO: std_logic_vector(31 downto 0);
+
+	signal ReadData1: std_logic_vector(31 downto 0);
+	signal ReadData2: std_logic_vector(31 downto 0);
+
+	signal ALU_result: std_logic_vector(31 downto 0);
+
+	signal ReadData: std_logic_vector(31 downto 0);
+
+	signal mux1: std_logic_vector(31 downto 0);
+	signal mux2: std_logic_vector(31 downto 0);
+	signal mux3: std_logic_vector(31 downto 0);
+
+	signal add1_out: std_logic_vector(31 downto 0);
+	signal carry_out: std_logic;
+
+	signal add2_out: std_logic_vector(31 downto 0);
+	signal carry2_out: std_logic;
+	
+	signal Branch_out: std_logic;
+
+	signal Zero: std_logic := '0';	
+	
+	signal selector_mux3: std_logic;
 begin
 	-- Add your code here
-	opcode <= DataOut(4 downto 0);
-	funct3 <= DataOut(14 downto 12);
-	funct7 <= DataOut(31 downto 25);
+	
+	
+	count: ProgramCounter port map(reset, clock, PCN, PCO);
+
+	first_add: adder_subtracter port map(PCO, X"00000004", '0', add1_out, carry_out);
+
+	InstructionMem: InstructionRam port map(reset, clock, PCO(29 downto 0), Dout);
+	
+	opcode <= DOut(6 downto 0);
+	funct3 <= DOut(14 downto 12);
+	funct7 <= DOut(31 downto 25);
+	
+	cntrl: control port map(clock, opcode, funct3, funct7, Branch, MemRead, MemReg, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
+
+	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux3, RegWrite, ReadData1, ReadData2);
+
+	with ImmGen select
+		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "00",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 25)&Dout(11 downto 7) when "01",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(7)&Dout(30 downto 25)&Dout(11 downto 8)&'0' when "10",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 12) when others; 	
+
+	add2: adder_subtracter port map(PCO, ImmGenO, '0', add2_out, carry2_out);
+
+	muxtwo: BusMux2to1 port map(ALUSrc, ReadData2, ImmGenO, mux1);
+
+	ALULOL: ALU port map(ReadData1, mux1, ALUCtrl, Zero, ALU_result);
+
+	DataRam: RAM port map(reset, clock, MemRead, MemWrite, ALU_result(31 downto 2), ReadData2, ReadData);
+
+	muxthree: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
+
+	with Branch select
+		selector_mux3 <= '1' when "01",
+					'1' when "10",
+					'0' when others;
+	
+	
 	
 end holistic;
 
