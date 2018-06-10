@@ -113,7 +113,7 @@ architecture holistic of Processor is
 
 	signal mux1: std_logic_vector(31 downto 0);
 	signal mux2: std_logic_vector(31 downto 0);
-	signal mux3: std_logic_vector(31 downto 0);
+	--signal mux3: std_logic_vector(31 downto 0); --commented out, this is extra
 
 	signal add1_out: std_logic_vector(31 downto 0);
 	signal carry_out: std_logic;
@@ -147,10 +147,10 @@ begin
 	cntrl: control port map(clock, opcode, funct3, funct7, Branch, MemRead, MemReg, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
 
 	-- registers
-	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux3, RegWrite, ReadData1, ReadData2);
+	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux2, RegWrite, ReadData1, ReadData2); --changed
 
 	-- ImmGen
-	with ImmGen select
+	with ImmGen select -- changed
 		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "00",
 				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 25)&Dout(11 downto 7) when "01",
 				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(7)&Dout(30 downto 25)&Dout(11 downto 8)&'0' when "10",
@@ -161,7 +161,7 @@ begin
 
 	-- Mux between registers and ALU
 
-	muxtwo: BusMux2to1 port map(ALUSrc, ReadData2, ImmGenO, mux1);
+	muxone: BusMux2to1 port map(ALUSrc, ReadData2, ImmGenO, mux1);
 
 	-- ALU 
 	ALULOL: ALU port map(ReadData1, mux1, ALUCtrl, Zero, ALU_result);
@@ -170,14 +170,15 @@ begin
 	DataRam: RAM port map(reset, clock, MemRead, MemWrite, ALU_result(31 downto 2), ReadData2, ReadData);
 
 	-- Mux after Data Memory
-	muxthree: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
+	muxtwo: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
 
 	with zero & Branch select
 		selector_mux3 <= '1' when "101",
 					'1' when "110",
 					'0' when others;
 	
-	
+	-- mux after branch
+	mux_3: BusMux2to1 port map(selector_mux3, add1_out, add2_out, PCN);	--addded
 	
 	
 end holistic;
