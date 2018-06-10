@@ -92,6 +92,7 @@ end entity ProgramCounter;
 architecture executive of ProgramCounter is
 
 signal new_address: std_logic_vector (31 downto 0);
+
 begin
 -- Add your code here
 process(Clock, Reset)

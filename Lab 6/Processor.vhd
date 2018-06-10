@@ -102,8 +102,8 @@ architecture holistic of Processor is
 	
 
 	-- control signals
-	signal clk: std_logic;
-	signal opcode: 	 std_logic_vector(4 downto 0);
+	--signal clk: std_logic;
+	signal opcode: 	 std_logic_vector(6 downto 0);
 	signal funct7: 	 std_logic_vector (6 downto 0);	
 	signal funct3: 	 std_logic_vector(2 downto 0);
 	signal Branch: 	 std_logic_vector(1 downto 0);
@@ -133,25 +133,42 @@ architecture holistic of Processor is
 	signal carryout_2: std_logic;
 begin
 	-- Add your code here
-
+	
+	
+	
 	--PC
-	PC: ProgramCounter port map(reset, clk, PCin, PCout);
+	PC: ProgramCounter port map(reset, clock, PCin, PCout);
 
 	-- PC add 4:
-	add4: adder_subtracter port map(PCout, X"00000004",'0',add4_result, carryout); -- add --> '0', sub --> '1'
+	add4: adder_subtracter port map(PCout, "00000000000000000000000000000100",'0',add4_result, carryout); -- add --> '0', sub --> '1'
+
+	-- Intruction memory
+	InstructionMem: InstructionRam port map(reset, clock, PCout(29 downto 0), Inst);
+
+	opcode <= inst(6 downto 0);
+	funct3 <= inst(14 downto 12);
+	funct7 <= inst(31 downto 25);
 
 	--branch off instructions
 		-- Control
-	ctrl: Control port map(clk, inst(6 downto 0), inst(14 downto 12), inst(31 downto 25), Branch, MemReg, MemRead, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
+	ctrl: Control port map(clock, opcode, funct3, funct7, Branch, MemReg, MemRead, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
 		-- Registers
 	i_reg: Registers port map(inst(19 downto 15), inst(24 downto 20), inst(11 downto 7), write_data, RegWrite, read1, read2);
+	
+	-- ImmGen
+	with ImmGen select
+		ImmGen_out 	<= inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 20) when "01", -- I-type
+				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 25)&inst(11 downto 7) when "10", -- S-type
+				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 12) when "11", -- U-type 
+				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(7)&inst(30 downto 25)&inst(11 downto 8)&'0' when others; --B type
+
 
 	-- MUX 1
 	mux_1: BusMux2to1 port map(ALUSrc, read2, ImmGen_out, read2_mux1);
 	
 	-- ALU
 	alu1: ALU port map(read1, read2_mux1, ALUCtrl, zero, ALU_result);
-	datamemory: RAM port map(reset, clk, MemRead, MemWrite, ALU_result(31 downto 2), read2, read_data);
+	datamemory: RAM port map(reset, clock, MemRead, MemWrite, ALU_result(31 downto 2), read2, read_data);
 	mux_2: BusMux2to1 port map(MemReg, ALU_result, read_data, write_data);
 	mux_3: BusMux2to1 port map(branchOut, add4_result, Sum, PCin);
 
@@ -160,19 +177,14 @@ begin
 	
 	-- Branch 
 	with zero&Branch select	
-		branchOut <= '1' when "110" | "111", --------------check check check check check
+		branchOut <= '1' when "110",
+				'1' when "101",
 				'0' when others;
 
 
-	--------- need IMmmGen to produce ImmGen_out signal ----------- GOES HERE --------
+	
 
-	with ImmGen select
-		ImmGen_out 	<= inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 20) when "01", -- I-type
-				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 25)&inst(11 downto 7) when "10", -- S-type
-				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 12) when "11", -- U-type 
-				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 25)&inst(11 downto 7)&'0' when others; --B type
-
-
+	
 
 end architecture holistic;
 
