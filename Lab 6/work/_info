@@ -9,10 +9,10 @@ z2
 cModel Technology
 Z0 dP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 5
 T_opt
-!s110 1528592471
-V][kZDXa?g8[S1=Z;P14j41
+!s110 1528661813
+V>F<>RMg<k]^jCOB;D9?TR3
 04 14 8 work tprocessor_vhd behavior 1
-=1-4437e6bbb0f5-5b1c7856-323-263c
+=1-4437e6bbb0f5-5b1d8732-2d6-2690
 Z1 o-quiet -auto_acc_if_foreign -work work +acc
 Z2 tCvgOpt 0
 n@_opt
@@ -43,9 +43,9 @@ VGlR1iLY2k;Z=O7YlKBKMH2
 !s100 ^Bkm<]>[YAUc[HH;Gec8D2
 Z13 OL;C;10.5e;63
 32
-Z14 !s110 1528592454
+Z14 !s110 1528661799
 !i10b 1
-Z15 !s108 1528592454.000000
+Z15 !s108 1528661799.000000
 Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/registers.vhd|
 Z17 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/registers.vhd|
 !i113 0
@@ -88,9 +88,9 @@ VnL_R@lmE>HSkzW>2N>a0Q1
 !s100 >hhlQK=A>5R^^U033PL]P2
 R13
 32
-Z23 !s110 1528592453
+Z23 !s110 1528661798
 !i10b 1
-Z24 !s108 1528592453.000000
+Z24 !s108 1528661798.000000
 Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/ALU.vhd|
 Z26 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/ALU.vhd|
 !i113 0
@@ -163,25 +163,25 @@ R17
 R18
 R19
 Ebusmux2to1
-Z27 w1528590993
+Z27 w1528661713
 R6
 R5
 R8
 R9
 R10
-Z28 8P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 6\ProcElements.vhd
-Z29 FP:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 6\ProcElements.vhd
+Z28 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/ProcElements.vhd
+Z29 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/ProcElements.vhd
 l0
 L11
 VQOQ=6Bb6nbPd6d`C@M2Wo0
 !s100 N144V5D>E9Toc`Eo`oMk00
 R13
 32
-Z30 !s110 1528592452
+Z30 !s110 1528661797
 !i10b 1
-Z31 !s108 1528592452.000000
-Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 6\ProcElements.vhd|
-Z33 !s107 P:\Spring 2018\ECEGR 2220 Microprocessor Design\AVOCADOS\AVOCADOS\Lab 6\ProcElements.vhd|
+Z31 !s108 1528661797.000000
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/ProcElements.vhd|
+Z33 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/ProcElements.vhd|
 !i113 0
 R18
 R19
@@ -193,8 +193,8 @@ R9
 DEx4 work 10 busmux2to1 0 22 QOQ=6Bb6nbPd6d`C@M2Wo0
 l18
 L17
-VT3S4USbHh9JgX]Ym<iMT>1
-!s100 EY6ANU^=2CL;E]OEV;lQ>3
+VmWg>F[omeVdLGfOGHeLcH3
+!s100 ocjSYJ[5JX]J0T9Y9FDRR0
 R13
 32
 R30
@@ -234,10 +234,10 @@ R5
 R8
 R9
 DEx4 work 7 control 0 22 Cc;[zGRHKI:Ld=EP6CPUm0
-l49
+l46
 L45
-VzF6@Fn`RM=D?kGM<YB3aJ3
-!s100 k7;me]lD0<cOYDTDGda8<0
+Vc_kjnogkM]1;Ea^:0BGUX0
+!s100 ]QX_z?mdjcD6@LS]Y5Tko2
 R13
 32
 R30
@@ -309,11 +309,11 @@ V66Om^UA6FP5;hL9MV1ok`0
 !s100 X;oSEnc^]dZ`]B<Sbo?Bb0
 R13
 32
-Z37 !s110 1528592451
+R30
 !i10b 1
-Z38 !s108 1528592451.000000
-Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/InstrMemory.vhd|
-Z40 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/InstrMemory.vhd|
+Z37 !s108 1528661796.000000
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/InstrMemory.vhd|
+Z39 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/InstrMemory.vhd|
 !i113 0
 R18
 R19
@@ -330,34 +330,34 @@ VQ>3WHikkm6j[aAVO_Xf;c3
 !s100 k19_^o4YCnGDe;OdWnHVl0
 R13
 32
-R37
+R30
 !i10b 1
+R37
 R38
 R39
-R40
 !i113 0
 R18
 R19
 Eprocessor
-Z41 w1528592446
+Z40 w1528661747
 R6
 R5
 R8
 R9
 R10
-Z42 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd
-Z43 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd
+Z41 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd
+Z42 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd
 l0
 L11
 VJJdje4838>?SDomi11GjW1
 !s100 9eE6SjzoQJ_k:9Fz?3[`n1
 R13
 32
-R30
+R23
 !i10b 1
 R31
-Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd|
-Z45 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd|
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd|
+Z44 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd|
 !i113 0
 R18
 R19
@@ -367,17 +367,17 @@ R5
 R8
 R9
 DEx4 work 9 processor 0 22 JJdje4838>?SDomi11GjW1
-l134
+l129
 L16
-V6fgZgJ_D7dBGQbemaEBR70
-!s100 Ll@Y;VY<2]Slji2]8TWZ<2
+VFe3;e8ke:WZP8FKo@5`Ym1
+!s100 f7`fY2R=2g9moed7UfO980
 R13
 32
-R30
+R23
 !i10b 1
 R31
+R43
 R44
-R45
 !i113 0
 R18
 R19
@@ -391,9 +391,9 @@ R10
 R28
 R29
 l0
-L86
-VY^iSF@e>n;MD]3A9M_abF3
-!s100 DAobQC2F>2lkoTkO;YI6i2
+L109
+V:i^^=j:j=OgBRb0UCnnTb3
+!s100 C4:B:CM13UhK8Qc5eUaU91
 R13
 32
 R30
@@ -409,11 +409,11 @@ R6
 R5
 R8
 R9
-DEx4 work 14 programcounter 0 22 Y^iSF@e>n;MD]3A9M_abF3
-l97
-L93
-V8h;K@9a;I_kAoUdk6L8Y`3
-!s100 U^kH@PUB?:eIA2ocz1mlz1
+DEx4 work 14 programcounter 0 22 :i^^=j:j=OgBRb0UCnnTb3
+l119
+L116
+VX^F4fiJHd9h[LSJbI^70L3
+!s100 cQHGnMH62]:m1D]cf=2bf3
 R13
 32
 R30
@@ -425,26 +425,26 @@ R33
 R18
 R19
 Eram
-Z46 w1527228195
+Z45 w1527228195
 R5
 R6
 R7
 R8
 R9
 R10
-Z47 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Memory.vhd
-Z48 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Memory.vhd
+Z46 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Memory.vhd
+Z47 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Memory.vhd
 l0
 L113
 V<m]NTH9jMGS?[`FKJ>X062
 !s100 UPb[E<_dfb:S85h;R61kZ0
 R13
 32
-R23
+R14
 !i10b 1
-R24
-Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Memory.vhd|
-Z50 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Memory.vhd|
+R15
+Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Memory.vhd|
+Z49 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Memory.vhd|
 !i113 0
 R18
 R19
@@ -461,11 +461,11 @@ V>Az7X@g]6ZBif];1Ih_6H3
 !s100 7QJg6Y[lG4aeUaWImZHDX1
 R13
 32
-R23
+R14
 !i10b 1
-R24
+R15
+R48
 R49
-R50
 !i113 0
 R18
 R19
@@ -560,26 +560,26 @@ R17
 R18
 R19
 Eregisters
-R46
+R45
 R5
 R6
 R7
 R8
 R9
 R10
+R46
 R47
-R48
 l0
 L170
 V`?W_fK7DRg:BCmd2@GEE51
 !s100 ]?BZUSc9HBA@L`md65]k`3
 R13
 32
-R23
+R14
 !i10b 1
-R24
+R15
+R48
 R49
-R50
 !i113 0
 R18
 R19
@@ -596,11 +596,11 @@ VHXVCh_9GK9HViVmkUz;ZV1
 !s100 A4HHWdZjOf;iDcDJZSGR@2
 R13
 32
-R23
+R14
 !i10b 1
-R24
+R15
+R48
 R49
-R50
 !i113 0
 R18
 R19
@@ -650,26 +650,26 @@ R17
 R18
 R19
 Etprocessor_vhd
-Z51 w1528323610
+Z50 w1528323610
 R7
 R5
 R6
 R8
 R9
 R10
-Z52 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/tProcessor.vhd
-Z53 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/tProcessor.vhd
+Z51 8P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/tProcessor.vhd
+Z52 FP:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/tProcessor.vhd
 l0
 L12
 V]F>Z@EUlCU;N?nzOSKD;01
 !s100 AfM>`8CkebQoS>K]1oo?]0
 R13
 32
-R30
+R23
 !i10b 1
-R31
-Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/tProcessor.vhd|
-Z55 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/tProcessor.vhd|
+R24
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/tProcessor.vhd|
+Z54 !s107 P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/tProcessor.vhd|
 !i113 0
 R18
 R19
@@ -688,9 +688,9 @@ R13
 32
 R23
 !i10b 1
-R31
+R24
+R53
 R54
-R55
 !i113 0
 R18
 R19

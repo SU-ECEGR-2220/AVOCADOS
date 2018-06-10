@@ -177,7 +177,8 @@ begin
 	
 	-- Branch 
 	with zero&Branch select	
-		branchOut <= '1' when "110" | "101",
+		branchOut <= '1' when "110",
+				'1' when "101",
 				'0' when others;
 
 
