@@ -84,25 +84,7 @@ architecture holistic of Processor is
 			dataout: out std_logic_vector(31 downto 0);
 			co: out std_logic);
 	end component adder_subtracter;
-	
-	-- pc signals
-	signal PCin: std_logic_vector(31 downto 0);
-	signal PCout: std_logic_vector(31 downto 0);
-	signal add4_result: std_logic_vector(31 downto 0);
-	signal carryout: std_logic;
 
-	-- output signal from instruction memory
-	signal inst: std_logic_vector(31 downto 0);   -- instructions
-
-	-- registers signals
-	signal write_data: std_logic_vector(31 downto 0);
-	signal read1: std_logic_vector(31 downto 0);
-	signal read2: std_logic_vector(31 downto 0);
-	signal read2_mux1: std_logic_vector(31 downto 0);
-	
-
-	-- control signals
-	--signal clk: std_logic;
 	signal opcode: 	 std_logic_vector(6 downto 0);
 	signal funct7: 	 std_logic_vector (6 downto 0);	
 	signal funct3: 	 std_logic_vector(2 downto 0);
@@ -114,77 +96,88 @@ architecture holistic of Processor is
 	signal ALUSrc: 	 std_logic;
 	signal RegWrite: std_logic;
 	signal ImmGen: 	 std_logic_vector (1 downto 0);
+	
+	signal PCN:	std_logic_vector(31 downto 0);
+	signal PCO:	std_logic_vector(31 downto 0);
+	
+	signal DOut: 	std_logic_vector(31 downto 0);	
 
-	-- ImmGen signals
-	signal ImmGen_out: std_logic_vector (31 downto 0);
+	signal ImmGenO: std_logic_vector(31 downto 0);
 
-	-- ALU 1 signals ( ALU under)
+	signal ReadData1: std_logic_vector(31 downto 0);
+	signal ReadData2: std_logic_vector(31 downto 0);
+
 	signal ALU_result: std_logic_vector(31 downto 0);
-	signal zero: std_logic;
 
-	-- Data memory signals:
-	signal read_data: std_logic_vector(31 downto 0);
+	signal ReadData: std_logic_vector(31 downto 0);
 
-	-- Branch signals:
-	signal branchOut: std_logic;
+	signal mux1: std_logic_vector(31 downto 0);
+	signal mux2: std_logic_vector(31 downto 0);
+	signal mux3: std_logic_vector(31 downto 0);
 
-	-- ADD2 signals:
-	signal sum: std_logic_vector (31 downto 0);
-	signal carryout_2: std_logic;
+	signal add1_out: std_logic_vector(31 downto 0);
+	signal carry_out: std_logic;
+
+	signal add2_out: std_logic_vector(31 downto 0);
+	signal carry2_out: std_logic;
+	
+	signal Branch_out: std_logic;
+
+	signal Zero: std_logic;	
+	
+	signal selector_mux3: std_logic;
 begin
 	-- Add your code here
 	
+	-- PC
+	count: ProgramCounter port map(reset, clock, PCN, PCO);
+
+	-- add 4 after PC
+	first_add: adder_subtracter port map(PCO, X"00000004", '0', add1_out, carry_out);
+
+
+	-- Instruction Memory 	
+	InstructionMem: InstructionRam port map(reset, clock, PCO(29 downto 0), Dout);
 	
+	opcode <= DOut(6 downto 0);
+	funct3 <= DOut(14 downto 12);
+	funct7 <= DOut(31 downto 25);
 	
-	--PC
-	PC: ProgramCounter port map(reset, clock, PCin, PCout);
+	-- control
+	cntrl: control port map(clock, opcode, funct3, funct7, Branch, MemRead, MemReg, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
 
-	-- PC add 4:
-	add4: adder_subtracter port map(PCout, "00000000000000000000000000000100",'0',add4_result, carryout); -- add --> '0', sub --> '1'
+	-- registers
+	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux3, RegWrite, ReadData1, ReadData2);
 
-	-- Intruction memory
-	InstructionMem: InstructionRam port map(reset, clock, PCout(29 downto 0), Inst);
-
-	opcode <= inst(6 downto 0);
-	funct3 <= inst(14 downto 12);
-	funct7 <= inst(31 downto 25);
-
-	--branch off instructions
-		-- Control
-	ctrl: Control port map(clock, opcode, funct3, funct7, Branch, MemReg, MemRead, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
-		-- Registers
-	i_reg: Registers port map(inst(19 downto 15), inst(24 downto 20), inst(11 downto 7), write_data, RegWrite, read1, read2);
-	
 	-- ImmGen
 	with ImmGen select
-		ImmGen_out 	<= inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 20) when "01", -- I-type
-				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 25)&inst(11 downto 7) when "10", -- S-type
-				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(30 downto 12) when "11", -- U-type 
-				inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(31)&inst(7)&inst(30 downto 25)&inst(11 downto 8)&'0' when others; --B type
+		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "00",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 25)&Dout(11 downto 7) when "01",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(7)&Dout(30 downto 25)&Dout(11 downto 8)&'0' when "10",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 12) when others; 	
 
+	-- add sum
+	add2: adder_subtracter port map(PCO, ImmGenO, '0', add2_out, carry2_out);
 
-	-- MUX 1
-	mux_1: BusMux2to1 port map(ALUSrc, read2, ImmGen_out, read2_mux1);
+	-- Mux between registers and ALU
+
+	muxtwo: BusMux2to1 port map(ALUSrc, ReadData2, ImmGenO, mux1);
+
+	-- ALU 
+	ALULOL: ALU port map(ReadData1, mux1, ALUCtrl, Zero, ALU_result);
+
+	-- Data Memory
+	DataRam: RAM port map(reset, clock, MemRead, MemWrite, ALU_result(31 downto 2), ReadData2, ReadData);
+
+	-- Mux after Data Memory
+	muxthree: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
+
+	with zero & Branch select
+		selector_mux3 <= '1' when "101",
+					'1' when "110",
+					'0' when others;
 	
-	-- ALU
-	alu1: ALU port map(read1, read2_mux1, ALUCtrl, zero, ALU_result);
-	datamemory: RAM port map(reset, clock, MemRead, MemWrite, ALU_result(31 downto 2), read2, read_data);
-	mux_2: BusMux2to1 port map(MemReg, ALU_result, read_data, write_data);
-	mux_3: BusMux2to1 port map(branchOut, add4_result, Sum, PCin);
-
-	-- Add2 (ADD --> SUM)
-	addsum: adder_subtracter port map(PCout, ImmGen_out, '0', Sum, carryout_2);
 	
-	-- Branch 
-	with zero&Branch select	
-		branchOut <= '1' when "110",
-				'1' when "101",
-				'0' when others;
-
-
 	
-
 	
-
-end architecture holistic;
-
+end holistic;
