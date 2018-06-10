@@ -123,7 +123,7 @@ architecture holistic of Processor is
 	
 	signal Branch_out: std_logic;
 
-	signal Zero: std_logic := '0';	
+	signal Zero: std_logic;	
 	
 	signal selector_mux3: std_logic;
 begin
@@ -160,9 +160,9 @@ begin
 
 	muxthree: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
 
-	with Branch select
-		selector_mux3 <= '1' when "01",
-					'1' when "10",
+	with zero & Branch select
+		selector_mux3 <= '1' when "101",
+					'1' when "110",
 					'0' when others;
 	
 	
