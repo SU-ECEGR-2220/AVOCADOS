@@ -47,7 +47,7 @@ begin
 -- Add your code here
 	WITH opcode & funct3 SELECT Branch <= "01" when "1100011000", --BEQ
 						"10" when "1100011001", --BNE
-						"--" when others;
+						"00" when others;
 	
 	WITH opcode & funct3 SELECT MemRead <= '1' when "0000011010", --LW
 						'0' when others;
