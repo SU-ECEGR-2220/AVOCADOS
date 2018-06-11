@@ -160,12 +160,12 @@ begin
 
 	muxthree: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
 
-	with Branch select
-		selector_mux3 <= '1' when "01",
-					'1' when "10",
+	with zero & Branch select
+		selector_mux3 <= '1' when "101",
+					'1' when "110",
 					'0' when others;
 	
 	
-	
+	mux_3: BusMux2to1 port map(selector_mux3, add1_out, add2_out, PCN);	
 end holistic;
 
