@@ -161,9 +161,11 @@ begin
 	muxtwo: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
 
 	with zero & Branch select
-		selector_mux3 <= '1' when "101",
-					'1' when "110",
-					'0' when others;
+		selector_mux3 <= '0' when "-00",
+					'0' when "001", -- BEQ
+					'1' when "101", -- BEQ
+					'1' when "010", -- BNE
+					'0' when others; --anything else PC+4
 	
 	
 	muxthree: BusMux2to1 port map(selector_mux3, add1_out, add2_out, PCN);	

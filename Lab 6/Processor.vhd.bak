@@ -142,7 +142,7 @@ begin
 	
 	cntrl: control port map(clock, opcode, funct3, funct7, Branch, MemRead, MemReg, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
 
-	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux3, RegWrite, ReadData1, ReadData2);
+	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux2, RegWrite, ReadData1, ReadData2);
 
 	with ImmGen select
 		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "00",
@@ -152,13 +152,13 @@ begin
 
 	add2: adder_subtracter port map(PCO, ImmGenO, '0', add2_out, carry2_out);
 
-	muxtwo: BusMux2to1 port map(ALUSrc, ReadData2, ImmGenO, mux1);
+	muxone: BusMux2to1 port map(ALUSrc, ReadData2, ImmGenO, mux1);
 
 	ALULOL: ALU port map(ReadData1, mux1, ALUCtrl, Zero, ALU_result);
 
 	DataRam: RAM port map(reset, clock, MemRead, MemWrite, ALU_result(31 downto 2), ReadData2, ReadData);
 
-	muxthree: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
+	muxtwo: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
 
 	with zero & Branch select
 		selector_mux3 <= '1' when "101",
@@ -166,6 +166,6 @@ begin
 					'0' when others;
 	
 	
-	mux_3: BusMux2to1 port map(selector_mux3, add1_out, add2_out, PCN);	
+	muxthree: BusMux2to1 port map(selector_mux3, add1_out, add2_out, PCN);	
 end holistic;
 

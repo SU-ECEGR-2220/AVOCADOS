@@ -9,10 +9,10 @@ z2
 cModel Technology
 Z0 dC:/MentorGraphics/questasim64_10.5e/examples
 T_opt
-!s110 1528687642
-VCF]T3Ymi27B57QYdG;?UX0
+!s110 1528766590
+VSXd28<n[o80<UNEKi:e0e0
 04 14 8 work tprocessor_vhd behavior 1
-=1-4437e6bbb10b-5b1dec18-47-154
+=1-4437e6bbb0c2-5b1f207c-15b-2cf8
 Z1 o-quiet -auto_acc_if_foreign -work work +acc
 Z2 tCvgOpt 0
 n@_opt
@@ -43,9 +43,9 @@ VGlR1iLY2k;Z=O7YlKBKMH2
 !s100 ^Bkm<]>[YAUc[HH;Gec8D2
 Z13 OL;C;10.5e;63
 32
-Z14 !s110 1528687625
+Z14 !s110 1528766569
 !i10b 1
-Z15 !s108 1528687625.000000
+Z15 !s108 1528766569.000000
 Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Master/lab 3/lab3.vhd|
 Z17 !s107 P:/Microprocessors/AVOCADOS/Master/lab 3/lab3.vhd|
 !i113 0
@@ -88,11 +88,11 @@ VnL_R@lmE>HSkzW>2N>a0Q1
 !s100 >hhlQK=A>5R^^U033PL]P2
 R13
 32
-R14
+Z23 !s110 1528766568
 !i10b 1
-R15
-Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Master/Lab 4/ALU.vhd|
-Z24 !s107 P:/Microprocessors/AVOCADOS/Master/Lab 4/ALU.vhd|
+Z24 !s108 1528766567.000000
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Master/Lab 4/ALU.vhd|
+Z26 !s107 P:/Microprocessors/AVOCADOS/Master/Lab 4/ALU.vhd|
 !i113 0
 R18
 R19
@@ -109,11 +109,11 @@ VZ>zeN:7_B2hW;H>4`SZ952
 !s100 WaQnISkDGlMjOC9Jk_CKR0
 R13
 32
-R14
-!i10b 1
-R15
 R23
+!i10b 1
 R24
+R25
+R26
 !i113 0
 R18
 R19
@@ -163,25 +163,25 @@ R17
 R18
 R19
 Ebusmux2to1
-Z25 w1528588768
+Z27 w1528766505
 R6
 R5
 R8
 R9
 R10
-Z26 8P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd
-Z27 FP:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd
+Z28 8P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd
+Z29 FP:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd
 l0
 L11
 VQOQ=6Bb6nbPd6d`C@M2Wo0
 !s100 N144V5D>E9Toc`Eo`oMk00
 R13
 32
-Z28 !s110 1528687623
+Z30 !s110 1528766565
 !i10b 1
-Z29 !s108 1528687623.000000
-Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd|
-Z31 !s107 P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd|
+Z31 !s108 1528766565.000000
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd|
+Z33 !s107 P:/Microprocessors/AVOCADOS/Lab 6/ProcElements.vhd|
 !i113 0
 R18
 R19
@@ -197,34 +197,34 @@ VmWg>F[omeVdLGfOGHeLcH3
 !s100 ocjSYJ[5JX]J0T9Y9FDRR0
 R13
 32
-R28
-!i10b 1
-R29
 R30
+!i10b 1
 R31
+R32
+R33
 !i113 0
 R18
 R19
 Econtrol
-R25
+R27
 R6
 R5
 R8
 R9
 R10
-R26
-R27
+R28
+R29
 l0
 L30
 VCc;[zGRHKI:Ld=EP6CPUm0
 !s100 dVJONDDX^^Yb6_6=111RN3
 R13
 32
-R28
+Z34 !s110 1528766566
 !i10b 1
-R29
-R30
 R31
+R32
+R33
 !i113 0
 R18
 R19
@@ -236,15 +236,15 @@ R9
 DEx4 work 7 control 0 22 Cc;[zGRHKI:Ld=EP6CPUm0
 l46
 L45
-Vc_kjnogkM]1;Ea^:0BGUX0
-!s100 ]QX_z?mdjcD6@LS]Y5Tko2
+VT^R^XXSE2Pc;P7LEbf1Td2
+!s100 P:02hF7fSKE6FSk`Pb_z;1
 R13
 32
-R28
+R34
 !i10b 1
-R29
-R30
 R31
+R32
+R33
 !i113 0
 R18
 R19
@@ -294,26 +294,26 @@ R17
 R18
 R19
 Einstructionram
-Z32 w1528166954
+Z35 w1528166954
 R5
 R6
 R7
 R8
 R9
 R10
-Z33 8P:/Microprocessors/AVOCADOS/Lab 6/InstrMemory.vhd
-Z34 FP:/Microprocessors/AVOCADOS/Lab 6/InstrMemory.vhd
+Z36 8P:/Microprocessors/AVOCADOS/Lab 6/InstrMemory.vhd
+Z37 FP:/Microprocessors/AVOCADOS/Lab 6/InstrMemory.vhd
 l0
 L11
 V66Om^UA6FP5;hL9MV1ok`0
 !s100 X;oSEnc^]dZ`]B<Sbo?Bb0
 R13
 32
-Z35 !s110 1528687624
+Z38 !s110 1528766567
 !i10b 1
-Z36 !s108 1528687624.000000
-Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 6/InstrMemory.vhd|
-Z38 !s107 P:/Microprocessors/AVOCADOS/Lab 6/InstrMemory.vhd|
+R24
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 6/InstrMemory.vhd|
+Z40 !s107 P:/Microprocessors/AVOCADOS/Lab 6/InstrMemory.vhd|
 !i113 0
 R18
 R19
@@ -330,34 +330,34 @@ VQ>3WHikkm6j[aAVO_Xf;c3
 !s100 k19_^o4YCnGDe;OdWnHVl0
 R13
 32
-R35
-!i10b 1
-R36
-R37
 R38
+!i10b 1
+R24
+R39
+R40
 !i113 0
 R18
 R19
 Eprocessor
-Z39 w1528687620
+Z41 w1528687620
 R6
 R5
 R8
 R9
 R10
-Z40 8P:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd
-Z41 FP:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd
+Z42 8P:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd
+Z43 FP:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd
 l0
 L11
 VJJdje4838>?SDomi11GjW1
 !s100 9eE6SjzoQJ_k:9Fz?3[`n1
 R13
 32
-R35
+R34
 !i10b 1
-R36
-Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd|
-Z43 !s107 P:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd|
+Z44 !s108 1528766566.000000
+Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd|
+Z46 !s107 P:/Microprocessors/AVOCADOS/Lab 6/Processor.vhd|
 !i113 0
 R18
 R19
@@ -373,34 +373,34 @@ Vf@jgC]FiDP[f4iHHY^ROh0
 !s100 dbLgdTBdaQb7>0iDNn_AP3
 R13
 32
-R35
+R34
 !i10b 1
-R36
-R42
-R43
+R44
+R45
+R46
 !i113 0
 R18
 R19
 Eprogramcounter
-R25
+R27
 R6
 R5
 R8
 R9
 R10
-R26
-R27
+R28
+R29
 l0
 L109
 V:i^^=j:j=OgBRb0UCnnTb3
 !s100 C4:B:CM13UhK8Qc5eUaU91
 R13
 32
-R28
+R34
 !i10b 1
-R29
-R30
 R31
+R32
+R33
 !i113 0
 R18
 R19
@@ -416,24 +416,24 @@ VX^F4fiJHd9h[LSJbI^70L3
 !s100 cQHGnMH62]:m1D]cf=2bf3
 R13
 32
-R28
+R34
 !i10b 1
-R29
-R30
 R31
+R32
+R33
 !i113 0
 R18
 R19
 Eram
-Z44 w1528167763
+Z47 w1528167763
 R5
 R6
 R7
 R8
 R9
 R10
-Z45 8P:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd
-Z46 FP:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd
+Z48 8P:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd
+Z49 FP:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd
 l0
 L113
 V<m]NTH9jMGS?[`FKJ>X062
@@ -442,9 +442,9 @@ R13
 32
 R14
 !i10b 1
-R15
-Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd|
-Z48 !s107 P:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd|
+Z50 !s108 1528766568.000000
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd|
+Z52 !s107 P:/Microprocessors/AVOCADOS/Master/Lab 5/Memory.vhd|
 !i113 0
 R18
 R19
@@ -463,9 +463,9 @@ R13
 32
 R14
 !i10b 1
-R15
-R47
-R48
+R50
+R51
+R52
 !i113 0
 R18
 R19
@@ -560,15 +560,15 @@ R17
 R18
 R19
 Eregisters
-R44
+R47
 R5
 R6
 R7
 R8
 R9
 R10
-R45
-R46
+R48
+R49
 l0
 L169
 Vca[_W:]PAc0;6kP8O=JL91
@@ -577,9 +577,9 @@ R13
 32
 R14
 !i10b 1
-R15
-R47
-R48
+R50
+R51
+R52
 !i113 0
 R18
 R19
@@ -598,9 +598,9 @@ R13
 32
 R14
 !i10b 1
-R15
-R47
-R48
+R50
+R51
+R52
 !i113 0
 R18
 R19
@@ -650,26 +650,26 @@ R17
 R18
 R19
 Etprocessor_vhd
-Z49 w1528166957
+Z53 w1528166957
 R7
 R5
 R6
 R8
 R9
 R10
-Z50 8P:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd
-Z51 FP:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd
+Z54 8P:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd
+Z55 FP:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd
 l0
 L12
 V]F>Z@EUlCU;N?nzOSKD;01
 !s100 AfM>`8CkebQoS>K]1oo?]0
 R13
 32
-R35
+R38
 !i10b 1
-R36
-Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd|
-Z53 !s107 P:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd|
+R44
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|P:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd|
+Z57 !s107 P:/Microprocessors/AVOCADOS/Lab 6/tProcessor.vhd|
 !i113 0
 R18
 R19
@@ -686,11 +686,11 @@ VOd<naR2]UDQ`@[Zah1UXe0
 !s100 mL]5C4J1MzfXLUceGejOI3
 R13
 32
-R35
+R38
 !i10b 1
-R36
-R52
-R53
+R44
+R56
+R57
 !i113 0
 R18
 R19
