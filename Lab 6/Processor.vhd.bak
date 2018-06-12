@@ -113,7 +113,7 @@ architecture holistic of Processor is
 
 	signal mux1: std_logic_vector(31 downto 0);
 	signal mux2: std_logic_vector(31 downto 0);
-	signal mux3: std_logic_vector(31 downto 0); --commented out, this is extra
+	--signal mux3: std_logic_vector(31 downto 0); --commented out, this is extra
 
 	signal add1_out: std_logic_vector(31 downto 0);
 	signal carry_out: std_logic;
@@ -147,7 +147,7 @@ begin
 	cntrl: control port map(clock, opcode, funct3, funct7, Branch, MemRead, MemReg, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
 
 	-- registers
-	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux3, RegWrite, ReadData1, ReadData2); --changed
+	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux2, RegWrite, ReadData1, ReadData2); --changed
 
 	-- ImmGen
 	with ImmGen select -- changed
