@@ -137,7 +137,7 @@ begin
 
 
 	-- Instruction Memory 	
-	InstructionMem: InstructionRam port map(reset, clock, PCO(29 downto 0), Dout);
+	InstructionMem: InstructionRam port map(reset, clock, PCO(31 downto 2), Dout);
 	
 	opcode <= DOut(6 downto 0);
 	funct3 <= DOut(14 downto 12);

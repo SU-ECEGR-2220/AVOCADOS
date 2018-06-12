@@ -140,7 +140,7 @@ architecture ALU_Arch of ALU is
 begin
 	-- Add ALU VHDL implementation here
 	addsub: adder_subtracter port map(DataIn1, DataIn2, ALUCtrl(2), addsub_result, addsub_carryout);
-	shift: shift_register port map(DataIn1, ALUCtrl(3), DataIn2(24 downto 20), shift_result);
+	shift: shift_register port map(DataIn1, ALUCtrl(3), DataIn2(10 downto 6), shift_result);
 	
 	and_result <= DataIn1 and DataIn2;
 	or_result <= DataIn1 or DataIn2;

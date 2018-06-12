@@ -130,18 +130,18 @@ begin
 	-- Add your code here
 	
 	-- PC
-	count: ProgramCounter port map(reset, clock, PCN, PCO);
+	count: ProgramCounter port map(reset, clock, PCN, PCO); --good
 
 	-- add 4 after PC
 	first_add: adder_subtracter port map(PCO, X"00000004", '0', add1_out, carry_out);
 
 
 	-- Instruction Memory 	
-	InstructionMem: InstructionRam port map(reset, clock, PCO(31 downto 2), Dout);
+	InstructionMem: InstructionRam port map(reset, clock, PCO(31 downto 2), Dout); --good
 	
-	opcode <= DOut(6 downto 0);
-	funct3 <= DOut(14 downto 12);
-	funct7 <= DOut(31 downto 25);
+	opcode <= DOut(6 downto 0); --good
+	funct3 <= DOut(14 downto 12); --good
+	funct7 <= DOut(31 downto 25); --good
 	
 	-- control
 	cntrl: control port map(clock, opcode, funct3, funct7, Branch, MemRead, MemReg, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);

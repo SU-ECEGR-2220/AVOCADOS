@@ -48,21 +48,22 @@ signal result: std_logic_vector(13 downto 0);
 
  begin
  -- Add your code here
-	with funct7 & funct3 & opcode select
-		result <= "--0000000001--" when "00000000000110011", --ADD
-			 "--0000100001--" when "01000000000110011", --SUB
-			 "--0000010001--" when "00000001110110011", --AND
-			 "--0000011001--" when "00000001100110011", --OR
-			 "--0000001011--" when "00000000010110011", --SLL			 
-			 "--0001001011--" when "00000001010110011", --SLR
-			 "--000000001101" when "-------0000010011", --ADDI
-			 "--000001101101" when "00000001100010011", --ORI
-			 "--000001001101" when "00000001110010011", --ANDI
-			 "--110111001101" when "00000000100000011", --LW			 
-			 "--001010111010" when "-------0100100011", --SW
-			 "01001000000000" when "-------0001100011", --BEQ
-			 "10000100000000" when "-------0011100011", --BNE
-			 "--000111101111" when "----------0110111", --LUI
+		result <= "00000000000100" when funct7 & funct3 & opcode = "00000000000110011" else --ADD
+			 "00000010000100" when funct7 & funct3 & opcode = "01000000000110011" else --SUB
+			 "00000001000100" when funct7 & funct3 & opcode = "00000001110110011" else --AND
+			 "00000001100100" when funct7 & funct3 & opcode = "00000001100110011" else --OR
+			 "00000000101100" when funct7 & funct3 & opcode = "00000000010110011" else --SLL			 
+			 "00000100101100" when funct7 & funct3 & opcode = "00000001010110011" else --SLR
+			 "00000000101101" when funct7 & funct3 & opcode = "00000000010010011" else --SLLI
+			 "00000100101101" when funct7 & funct3 & opcode = "00000001010010011" else --SRLI
+			 "00000000001101" when funct3 & opcode = "0000010011" else --ADDI
+			 "00000001101101" when funct3 & opcode = "1100010011" else --ORI
+			 "00000001001101" when funct3 & opcode = "1110010011" else --ANDI
+			 "00110111001101" when funct3 & opcode = "0100000011" else --LW			 
+			 "00001010111010" when funct3 & opcode = "0100100011" else --SW
+			 "01001000000000" when funct3 & opcode = "0001100011" else --BEQ
+			 "10000100000000" when funct3 & opcode = "0011100011" else --BNE
+			 "00000111101111" when opcode = "0110111" else --LUI
 			 "11111111111111" when others;	
 
 
@@ -70,8 +71,9 @@ signal result: std_logic_vector(13 downto 0);
 	MemRead <= result(11);
 	MemtoReg <= result(10);
 	ALUCtrl <= result(9 downto 5);
-	MemWrite <= result(4);	ALUSrc <= result(3);
-	RegWrite <= not(clk) and result(2);
+	MemWrite <= result(4);	
+	ALUSrc <= result(3);
+	RegWrite <= result(2);
 	ImmGen <= result(1 downto 0);	
 
 end architecture Boss;
