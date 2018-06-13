@@ -46,26 +46,24 @@ end Control;
 
 signal result: std_logic_vector(13 downto 0);
 
- begin
+begin
  -- Add your code here
-		result <= "00000000000100" when funct7 & funct3 & opcode = "00000000000110011" else --ADD
-			 "00000010000100" when funct7 & funct3 & opcode = "01000000000110011" else --SUB
-			 "00000001000100" when funct7 & funct3 & opcode = "00000001110110011" else --AND
-			 "00000001100100" when funct7 & funct3 & opcode = "00000001100110011" else --OR
-			 "00000000101100" when funct7 & funct3 & opcode = "00000000010110011" else --SLL			 
-			 "00000100101100" when funct7 & funct3 & opcode = "00000001010110011" else --SLR
-			 "00000000101101" when funct7 & funct3 & opcode = "00000000010010011" else --SLLI
-			 "00000100101101" when funct7 & funct3 & opcode = "00000001010010011" else --SRLI
-			 "00000000001101" when funct3 & opcode = "0000010011" else --ADDI
-			 "00000001101101" when funct3 & opcode = "1100010011" else --ORI
-			 "00000001001101" when funct3 & opcode = "1110010011" else --ANDI
-			 "00110111001101" when funct3 & opcode = "0100000011" else --LW			 
-			 "00001010111010" when funct3 & opcode = "0100100011" else --SW
-			 "01001000000000" when funct3 & opcode = "0001100011" else --BEQ
-			 "10000100000000" when funct3 & opcode = "0011100011" else --BNE
-			 "00000111101111" when opcode = "0110111" else --LUI
+	with funct7 & funct3 & opcode select
+		result <= "00000000000100" when "00000000000110011", --ADD
+			 "00000010000100" when "01000000000110011", --SUB
+			 "00000001000100" when "00000001110110011", --AND
+			 "00000001100100" when "00000001100110011", --OR
+			 "00000000101100" when "00000000010110011", --SLL			 
+			 "00000100101100" when "00000001010110011", --SLR
+			 "00000000001101" when "00000000000010011", --ADDI
+			 "00000001101101" when "00000001100010011", --ORI
+			 "00000001001101" when "00000001110010011", --ANDI
+			 "00110111001101" when "00000000100000011", --LW			 
+			 "00001010111010" when "00000000100100011", --SW
+			 "01001000000000" when "00000000001100011", --BEQ
+			 "10000100000000" when "00000000011100011", --BNE
+			 "00000111101111" when "00000000000110111", --LUI
 			 "11111111111111" when others;	
-
 
 	Branch <= result(13 downto 12);
 	MemRead <= result(11);

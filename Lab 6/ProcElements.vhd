@@ -48,21 +48,21 @@ signal result: std_logic_vector(13 downto 0);
 
  begin
  -- Add your code here
-		result <= "00000000000100" when funct7 & funct3 & opcode = "00000000000110011" else --ADD
-			 "00000010000100" when funct7 & funct3 & opcode = "01000000000110011" else --SUB
-			 "00000001000100" when funct7 & funct3 & opcode = "00000001110110011" else --AND
-			 "00000001100100" when funct7 & funct3 & opcode = "00000001100110011" else --OR
-			 "00000000101100" when funct7 & funct3 & opcode = "00000000010110011" else --SLL			 
-			 "00000100101100" when funct7 & funct3 & opcode = "00000001010110011" else --SLR
-			 "00000000101101" when funct7 & funct3 & opcode = "00000000010010011" else --SLLI
-			 "00000100101101" when funct7 & funct3 & opcode = "00000001010010011" else --SRLI
-			 "00000000001101" when funct3 & opcode = "0000010011" else --ADDI
-			 "00000001101101" when funct3 & opcode = "1100010011" else --ORI
-			 "00000001001101" when funct3 & opcode = "1110010011" else --ANDI
-			 "00110111001101" when funct3 & opcode = "0100000011" else --LW			 
-			 "00001010111010" when funct3 & opcode = "0100100011" else --SW
-			 "01001000000000" when funct3 & opcode = "0001100011" else --BEQ
-			 "10000100000000" when funct3 & opcode = "0011100011" else --BNE
+		result <= "000000000001ZZ" when funct7 = "0000000" and funct3 = "000" and opcode = "0110011" else --ADD
+			 "000000100001ZZ" when funct7 = "0100000" and funct3 = "000" and opcode = "0110011" else --SUB
+			 "000000010001ZZ" when funct7 = "0000000" and funct3 = "111" and opcode = "0110011" else --AND
+			 "000000011001ZZ" when funct7 = "0000000" and funct3 = "110" and opcode = "0110011" else --OR
+			 "000000001011ZZ" when funct7 = "0000000" and funct3 = "001" and opcode = "0110011" else --SLL			 
+			 "000001001011ZZ" when funct7 = "0000000" and funct3 = "101" and opcode = "0110011" else --SLR
+			 "00000000101101" when funct7 = "0000000" and funct3 = "001" and opcode = "0010011" else --SLLI
+			 "00000100101101" when funct7 = "0000000" and funct3 = "101" and opcode = "0010011" else --SRLI
+			 "00000000001101" when funct3 = "000" and opcode = "0010011" else --ADDI
+			 "00000001101101" when funct3 = "110" and opcode = "0010011" else --ORI
+			 "00000001001101" when funct3 = "111" and opcode = "0010011" else --ANDI
+			 "00110111001101" when funct3 = "010" and opcode = "0000011" else --LW			 
+			 "00001010111010" when funct3 = "010" and opcode = "0100011" else --SW
+			 "01001000000000" when funct3 = "000" and opcode = "1100011" else --BEQ
+			 "10000100000000" when funct3 = "001" and opcode = "1100011" else --BNE
 			 "00000111101111" when opcode = "0110111" else --LUI
 			 "11111111111111";	
 

@@ -126,6 +126,8 @@ architecture holistic of Processor is
 	signal Zero: std_logic;	
 	
 	signal selector_mux3: std_logic;
+
+	signal try: std_logic_vector(29 downto 0);
 begin
 	-- Add your code here
 	
@@ -133,7 +135,7 @@ begin
 	count: ProgramCounter port map(reset, clock, PCN, PCO); --good
 
 	-- add 4 after PC
-	first_add: adder_subtracter port map(PCO, X"00000004", '0', add1_out, carry_out);
+	first_add: adder_subtracter port map(PCO, "00000000000000000000000000000100", '0', add1_out, carry_out);
 
 
 	-- Instruction Memory 	
@@ -151,10 +153,11 @@ begin
 
 	-- ImmGen
 	with ImmGen select -- changed
-		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "00",
-				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 25)&Dout(11 downto 7) when "01",
-				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(7)&Dout(30 downto 25)&Dout(11 downto 8)&'0' when "10",
-				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 12) when others; 	
+		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "01", --I type
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 25)&Dout(11 downto 7) when "10", -- S-type
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(7)&Dout(30 downto 25)&Dout(11 downto 8)&'0' when "00", --Btype
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 12) when "11",
+				"ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" when others; 	--Utype
 
 	-- add sum
 	add2: adder_subtracter port map(PCO, ImmGenO, '0', add2_out, carry2_out);
@@ -167,15 +170,18 @@ begin
 	ALULOL: ALU port map(ReadData1, mux1, ALUCtrl, Zero, ALU_result);
 
 	-- Data Memory
-	DataRam: RAM port map(reset, clock, MemRead, MemWrite, ALU_result(31 downto 2), ReadData2, ReadData);
+	try <= "0000"& ALU_result(27 downto 2);
+	DataRam: RAM port map(reset, clock, MemRead, MemWrite, try, ReadData2, ReadData);
 
 	-- Mux after Data Memory
 	muxtwo: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
 
 	with zero & Branch select
-		selector_mux3 <= '1' when "101",
-					'1' when "110",
-					'0' when others;
+		selector_mux3 <= '0' when "-00",
+					'0' when "001", -- BEQ
+					'1' when "101", -- BEQ
+					'1' when "010", -- BNE
+					'0' when others; --anything else PC+4
 	
 	-- mux after branch
 	mux_3: BusMux2to1 port map(selector_mux3, add1_out, add2_out, PCN);	--addded
