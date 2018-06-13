@@ -1,0 +1,358 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity Processor is
+    Port ( reset : in  std_logic;
+	   clock : in  std_logic);
+end Processor;
+
+architecture holistic of Processor is
+	component Control
+   	     Port( clk : in  STD_LOGIC;
+               opcode : in  STD_LOGIC_VECTOR (6 downto 0);
+               funct3  : in  STD_LOGIC_VECTOR (2 downto 0);
+               funct7  : in  STD_LOGIC_VECTOR (6 downto 0);
+               Branch : out  STD_LOGIC_VECTOR(1 downto 0);
+               MemRead : out  STD_LOGIC;
+               MemtoReg : out  STD_LOGIC;
+               ALUCtrl : out  STD_LOGIC_VECTOR(4 downto 0);
+               MemWrite : out  STD_LOGIC;
+               ALUSrc : out  STD_LOGIC;
+               RegWrite : out  STD_LOGIC;
+               ImmGen : out STD_LOGIC_VECTOR(1 downto 0));
+	end component;
+
+	component ALU
+		Port(DataIn1: in std_logic_vector(31 downto 0);
+		     DataIn2: in std_logic_vector(31 downto 0);
+		     ALUCtrl: in std_logic_vector(4 downto 0);
+		     Zero: out std_logic;
+		     ALUResult: out std_logic_vector(31 downto 0) );
+	end component;
+	
+	component Registers
+	    Port(ReadReg1: in std_logic_vector(4 downto 0); 
+                 ReadReg2: in std_logic_vector(4 downto 0); 
+                 WriteReg: in std_logic_vector(4 downto 0);
+		 WriteData: in std_logic_vector(31 downto 0);
+		 WriteCmd: in std_logic;
+		 ReadData1: out std_logic_vector(31 downto 0);
+		 ReadData2: out std_logic_vector(31 downto 0));
+	end component;
+
+	component InstructionRAM
+    	    Port(Reset:	  in std_logic;
+		 Clock:	  in std_logic;
+		 Address: in std_logic_vector(29 downto 0);
+		 DataOut: out std_logic_vector(31 downto 0));
+	end component;
+
+	component RAM 
+	    Port(Reset:	  in std_logic;
+		 Clock:	  in std_logic;	 
+		 OE:      in std_logic;
+		 WE:      in std_logic;
+		 Address: in std_logic_vector(29 downto 0);
+		 DataIn:  in std_logic_vector(31 downto 0);
+		 DataOut: out std_logic_vector(31 downto 0));
+	end component;
+	
+	component BusMux2to1
+		Port(selector: in std_logic;
+		     In0, In1: in std_logic_vector(31 downto 0);
+		     Result: out std_logic_vector(31 downto 0) );
+	end component;
+	
+	component ProgramCounter
+	    Port(Reset: in std_logic;
+		 Clock: in std_logic;
+		 PCin: in std_logic_vector(31 downto 0);
+		 PCout: out std_logic_vector(31 downto 0));
+	end component;
+
+	component adder_subtracter
+		port(	datain_a: in std_logic_vector(31 downto 0);
+			datain_b: in std_logic_vector(31 downto 0);
+			add_sub: in std_logic;
+			dataout: out std_logic_vector(31 downto 0);
+			co: out std_logic);
+	end component adder_subtracter;
+
+
+-- Program Counter Output
+	signal PCOut       : std_logic_vector(31 downto 0);	-- Program Counter to Instruction Memory
+
+	-- Adders signals
+	signal AddOut1	   : std_logic_vector(31 downto 0);
+	signal AddOut2	   : std_logic_vector(31 downto 0);
+	signal c01, c02	   : std_logic;
+	
+	-- Intruction Memory Output
+	signal instruction : std_logic_vector(31 downto 0); 	-- Instruction Memory to Control, Registers, ImmGen
+
+	-- Control Output
+	signal CtrlBranch  : std_logic_vector(1 downto 0);	-- Control to Branch (Eq | Not Eq)
+	signal CtrlMemRead : std_logic;				-- Control to Data Memory
+	signal CtrlMemtoReg: std_logic;				-- Control to Mux after Data Memory
+	signal CtrlALUCtrl : std_logic_vector(4 downto 0);	-- Control to ALU
+	signal CtrlMemWrite: std_logic;				-- Control to Data Memory
+	signal CtrlALUSrc  : std_logic;				-- Control to Mux before ALU
+	signal CtrlRegWrite: std_logic;				-- Control to Registers
+	signal CtrlImmGen  : std_logic_vector(1 downto 0);	-- Control to ImmGen
+
+	-- Registers Output
+	signal ReadD1      : std_logic_vector(31 downto 0);	-- Registers to ALU
+	signal ReadD2      : std_logic_vector(31 downto 0);	-- Registers to ALUMux, RAM
+
+	-- Data Memory Output
+	signal ReadD	   : std_logic_vector(31 downto 0);	-- 
+
+	-- Muxes output
+	signal ALUMuxOut   : std_logic_vector(31 downto 0);	-- Mux to ALU
+	signal DMemMuxOut  : std_logic_vector(31 downto 0);	-- Mux to Register Write Data
+	signal AddSumMuxOut: std_logic_vector(31 downto 0);	-- Mux to PC
+
+	-- ALU output
+	signal ALUResultOut: std_logic_vector(31 downto 0);
+	signal ALUZero     : std_logic;
+	signal BranchEqNot : std_logic;
+	
+	--ImmGen output
+	signal ImmGenOut   : std_logic_vector(31 downto 0);    -- ImmGen to AddMux, ALUMux 
+	
+	signal finally : std_logic_vector(29 downto 0);
+begin
+-- Add your code here
+	-- Muxes
+	ALUMux: BusMux2to1   port map(CtrlALUSrc, ReadD2, ImmGenOut, ALUMuxOut);
+	AddMux: BusMux2to1   port map(BranchEqNot, AddOut1, AddOut2, AddSumMuxOut);
+	DMemMux: BusMux2to1  port map(CtrlMemtoReg, ALUResultOut, ReadD, DMemMuxOut);
+
+	-- Adders
+	PreAdder: adder_subtracter port map(PCOut, "00000000000000000000000000000100", '0', AddOut1, c01);
+	AddSumAdder: adder_subtracter port map(PCOut, ImmGenOut, '0', AddOut2, c02);
+
+	-- Major components
+	PC: ProgramCounter   port map(reset, clock, AddSumMuxOut, PCOut);
+
+	IMEM: InstructionRAM port map(reset, clock, PCOut(31 downto 2), instruction);
+
+	Ctrl: Control 	     port map(clock, instruction(6 downto 0), instruction(14 downto 12), instruction(31 downto 25), CtrlBranch, CtrlMemRead, CtrlMemtoReg, CtrlALUCtrl,CtrlMemWrite,CtrlALUSrc, CtrlRegWrite, CtrlImmGen);
+
+	Regs: Registers      port map(instruction(19 downto 15), instruction(24 downto 20), instruction(11 downto 7), DMemMuxOut, CtrlRegWrite, ReadD1, ReadD2);
+
+	ArithLU: ALU         port map(ReadD1, ALUMuxOut, CtrlALUCtrl, ALUZero, ALUResultOut);
+	
+	finally <= "0000"& ALUResultOut(27 downto 2);
+
+	DMem: RAM	     port map(reset, clock, CtrlMemRead, CtrlMemWrite, finally, ReadD2, ReadD);
+
+	with CtrlBranch & ALUZero select
+	BranchEqNot <=   '1' when "101",
+                         '1' when "010",
+		         '0' when others;
+	
+	with CtrlImmGen & instruction(31) select
+	ImmGenOut <=   "111111111111111111111" & instruction(30 downto 20) when "001",  --I_type
+                       "000000000000000000000" & instruction(30 downto 20) when "000",  --I_type
+		       "111111111111111111111" & instruction(30 downto 25) & instruction(11 downto 7) when "011",  --S_type
+                       "000000000000000000000" & instruction(30 downto 25) & instruction(11 downto 7) when "010",  --S_type
+		        "11111111111111111111" & instruction(7) & instruction(30 downto 25) & instruction(11 downto 8) & '0' when "101", --B_type
+                        "00000000000000000000" & instruction(7) & instruction(30 downto 25) & instruction(11 downto 8) & '0' when "100", --B_type
+			                   "1" & instruction(30 downto 12) & "000000000000" when "111", --U_type
+                                           "0" & instruction(30 downto 12) & "000000000000" when "110", --U_type
+            "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" when others;
+ 
+end holistic;
+--------------------------------------------------------------------------------
+--
+-- LAB #6 - Processor 
+--
+--------------------------------------------------------------------------------
+--library IEEE;
+--use IEEE.STD_LOGIC_1164.ALL;
+--use IEEE.STD_LOGIC_ARITH.ALL;
+--use IEEE.STD_LOGIC_UNSIGNED.ALL;
+--
+--entity Processor is
+--    Port ( reset : in  std_logic;
+--	   clock : in  std_logic);
+--end Processor;
+--
+--architecture holistic of Processor is
+--	component Control
+--   	     Port( clk : in  STD_LOGIC;
+--               opcode : in  STD_LOGIC_VECTOR (6 downto 0);
+--               funct3  : in  STD_LOGIC_VECTOR (2 downto 0);
+--               funct7  : in  STD_LOGIC_VECTOR (6 downto 0);
+--               Branch : out  STD_LOGIC_VECTOR(1 downto 0);
+--               MemRead : out  STD_LOGIC;
+--               MemtoReg : out  STD_LOGIC;
+--               ALUCtrl : out  STD_LOGIC_VECTOR(4 downto 0);
+--               MemWrite : out  STD_LOGIC;
+--               ALUSrc : out  STD_LOGIC;
+--               RegWrite : out  STD_LOGIC;
+--               ImmGen : out STD_LOGIC_VECTOR(1 downto 0));
+--	end component;
+--
+--	component ALU
+--		Port(DataIn1: in std_logic_vector(31 downto 0);
+--		     DataIn2: in std_logic_vector(31 downto 0);
+--		     ALUCtrl: in std_logic_vector(4 downto 0);
+--		     Zero: out std_logic;
+--		     ALUResult: out std_logic_vector(31 downto 0) );
+--	end component;
+--	
+--	component Registers
+--	    Port(ReadReg1: in std_logic_vector(4 downto 0); 
+--                 ReadReg2: in std_logic_vector(4 downto 0); 
+--                 WriteReg: in std_logic_vector(4 downto 0);
+--		 WriteData: in std_logic_vector(31 downto 0);
+--		 WriteCmd: in std_logic;
+--		 ReadData1: out std_logic_vector(31 downto 0);
+--		 ReadData2: out std_logic_vector(31 downto 0));
+--	end component;
+--
+--	component InstructionRAM
+--    	    Port(Reset:	  in std_logic;
+--		 Clock:	  in std_logic;
+--		 Address: in std_logic_vector(29 downto 0);
+--		 DataOut: out std_logic_vector(31 downto 0));
+--	end component;
+--
+--	component RAM 
+--	    Port(Reset:	  in std_logic;
+--		 Clock:	  in std_logic;	 
+--		 OE:      in std_logic;
+--		 WE:      in std_logic;
+--		 Address: in std_logic_vector(29 downto 0);
+--		 DataIn:  in std_logic_vector(31 downto 0);
+--		 DataOut: out std_logic_vector(31 downto 0));
+--	end component;
+--	
+--	component BusMux2to1
+--		Port(selector: in std_logic;
+--		     In0, In1: in std_logic_vector(31 downto 0);
+--		     Result: out std_logic_vector(31 downto 0) );
+--	end component;
+--	
+--	component ProgramCounter
+--	    Port(Reset: in std_logic;
+--		 Clock: in std_logic;
+--		 PCin: in std_logic_vector(31 downto 0);
+--		 PCout: out std_logic_vector(31 downto 0));
+--	end component;
+--
+--	component adder_subtracter
+--		port(	datain_a: in std_logic_vector(31 downto 0);
+--			datain_b: in std_logic_vector(31 downto 0);
+--			add_sub: in std_logic;
+--			dataout: out std_logic_vector(31 downto 0);
+--			co: out std_logic);
+--	end component adder_subtracter;
+--
+--	signal opcode: 	 std_logic_vector(6 downto 0);
+--	signal funct7: 	 std_logic_vector (6 downto 0);	
+--	signal funct3: 	 std_logic_vector(2 downto 0);
+--	signal Branch: 	 std_logic_vector(1 downto 0);
+--	signal MemReg: 	 std_logic;
+--	signal MemRead:	 std_logic;
+--	signal ALUCtrl:  std_logic_vector (4 downto 0);
+--	signal MemWrite: std_logic;
+--	signal ALUSrc: 	 std_logic;
+--	signal RegWrite: std_logic;
+--	signal ImmGen: 	 std_logic_vector (1 downto 0);
+--	
+--	signal PCN:	std_logic_vector(31 downto 0);
+--	signal PCO:	std_logic_vector(31 downto 0);
+--	
+--	signal DOut: 	std_logic_vector(31 downto 0);	
+--
+--	signal ImmGenO: std_logic_vector(31 downto 0);
+--
+--	signal ReadData1: std_logic_vector(31 downto 0);
+--	signal ReadData2: std_logic_vector(31 downto 0);
+--
+--	signal ALU_result: std_logic_vector(31 downto 0);
+--
+--	signal ReadData: std_logic_vector(31 downto 0);
+--
+--	signal mux1: std_logic_vector(31 downto 0);
+--	signal mux2: std_logic_vector(31 downto 0);
+--	--signal mux3: std_logic_vector(31 downto 0); --commented out, this is extra
+--
+--	signal add1_out: std_logic_vector(31 downto 0);
+--	signal carry_out: std_logic;
+--
+--	signal add2_out: std_logic_vector(31 downto 0);
+--	signal carry2_out: std_logic;
+--	
+--	signal Branch_out: std_logic;
+--
+--	signal Zero: std_logic;	
+--	
+--	signal selector_mux3: std_logic;
+--
+--	signal try: std_logic_vector(29 downto 0);
+--begin
+--	-- Add your code here
+--	
+--	-- PC
+--	count: ProgramCounter port map(reset, clock, PCN, PCO); --good
+--
+--	-- add 4 after PC
+--	first_add: adder_subtracter port map(PCO, "00000000000000000000000000000100", '0', add1_out, carry_out);
+--
+--
+--	-- Instruction Memory 	
+--	InstructionMem: InstructionRam port map(reset, clock, PCO(31 downto 2), Dout); --good
+--	
+--	opcode <= DOut(6 downto 0); --good
+--	funct3 <= DOut(14 downto 12); --good
+--	funct7 <= DOut(31 downto 25); --good
+--	
+--	-- control
+--	cntrl: control port map(clock, opcode, funct3, funct7, Branch, MemRead, MemReg, ALUCtrl, MemWrite, ALUSrc, RegWrite, ImmGen);
+--
+--	-- registers
+--	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux2, RegWrite, ReadData1, ReadData2); --changed
+--
+--	-- ImmGen
+--	with ImmGen select -- changed
+--		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "01", --I type
+--				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 25)&Dout(11 downto 7) when "10", -- S-type
+--				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(7)&Dout(30 downto 25)&Dout(11 downto 8)&'0' when "00", --Btype
+--				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 12) when "11",
+--				"ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" when others; 	--Utype
+--
+--	-- add sum
+--	add2: adder_subtracter port map(PCO, ImmGenO, '0', add2_out, carry2_out);
+--
+--	-- Mux between registers and ALU
+--
+--	muxone: BusMux2to1 port map(ALUSrc, ReadData2, ImmGenO, mux1);
+--
+--	-- ALU 
+--	ALULOL: ALU port map(ReadData1, mux1, ALUCtrl, Zero, ALU_result);
+--
+--	-- Data Memory
+--	try <= "0000"& ALU_result(27 downto 2);
+--	DataRam: RAM port map(reset, clock, MemRead, MemWrite, try, ReadData2, ReadData);
+--
+--	-- Mux after Data Memory
+--	muxtwo: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
+--
+--	with zero & Branch select
+--		selector_mux3 <= '0' when "-00",
+--					'0' when "001", -- BEQ
+--					'1' when "101", -- BEQ
+--					'1' when "010", -- BNE
+--					'0' when others; --anything else PC+4
+--	
+--	-- mux after branch
+--	mux_3: BusMux2to1 port map(selector_mux3, add1_out, add2_out, PCN);	--addded
+--	
+--	
+--end holistic;

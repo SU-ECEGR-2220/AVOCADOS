@@ -145,10 +145,11 @@ begin
 	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux2, RegWrite, ReadData1, ReadData2);
 
 	with ImmGen select
-		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "00",
-				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 25)&Dout(11 downto 7) when "01",
-				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(7)&Dout(30 downto 25)&Dout(11 downto 8)&'0' when "10",
-				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 12) when others; 	
+		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "01",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 25)&Dout(11 downto 7) when "10",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(7)&Dout(30 downto 25)&Dout(11 downto 8)&'0' when "00",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 12) when "11",
+				"ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" when others; 	
 
 	add2: adder_subtracter port map(PCO, ImmGenO, '0', add2_out, carry2_out);
 
