@@ -48,12 +48,12 @@ signal result: std_logic_vector(13 downto 0);
 
  begin
  -- Add your code here
-		result <= "000000000001ZZ" when funct7 = "0000000" and funct3 = "000" and opcode = "0110011" else --ADD
-			 "000000100001ZZ" when funct7 = "0100000" and funct3 = "000" and opcode = "0110011" else --SUB
-			 "000000010001ZZ" when funct7 = "0000000" and funct3 = "111" and opcode = "0110011" else --AND
-			 "000000011001ZZ" when funct7 = "0000000" and funct3 = "110" and opcode = "0110011" else --OR
-			 "000000001011ZZ" when funct7 = "0000000" and funct3 = "001" and opcode = "0110011" else --SLL			 
-			 "000001001011ZZ" when funct7 = "0000000" and funct3 = "101" and opcode = "0110011" else --SLR
+		result <= "00000000000100" when funct7 = "0000000" and funct3 = "000" and opcode = "0110011" else --ADD
+			 "00000010000100" when funct7 = "0100000" and funct3 = "000" and opcode = "0110011" else --SUB
+			 "00000001000100" when funct7 = "0000000" and funct3 = "111" and opcode = "0110011" else --AND
+			 "00000001100100" when funct7 = "0000000" and funct3 = "110" and opcode = "0110011" else --OR
+			 "00000000101100" when funct7 = "0000000" and funct3 = "001" and opcode = "0110011" else --SLL			 
+			 "00000100101100" when funct7 = "0000000" and funct3 = "101" and opcode = "0110011" else --SLR
 			 "00000000101101" when funct7 = "0000000" and funct3 = "001" and opcode = "0010011" else --SLLI
 			 "00000100101101" when funct7 = "0000000" and funct3 = "101" and opcode = "0010011" else --SRLI
 			 "00000000001101" when funct3 = "000" and opcode = "0010011" else --ADDI

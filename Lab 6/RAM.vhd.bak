@@ -201,14 +201,14 @@ WITH WriteCmd & WriteReg SELECT WRITETHIS <= "00000001" when "101010",
 
 	X0 <= (others => '0');
 
- 	ALMOST: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(0), '0', '0', A0); 
-	DONE: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(1), '0', '0', A1); 
-	WTIH1: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(2), '0', '0', A2); 
-	THIS: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(3), '0', '0', A3); 
-	LAB: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(4), '0', '0', A4); 
-	IM: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(5), '0', '0', A5); 
-	SO: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(6), '0', '0', A6); 
-	HAPPY: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(7), '0', '0', A7); 
+ 	ALMOST: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(0), '1', '1', A0); 
+	DONE: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(1), '1', '1', A1); 
+	WTIH1: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(2), '1', '1', A2); 
+	THIS: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(3), '1', '1', A3); 
+	LAB: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(4), '1', '1', A4); 
+	IM: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(5), '1', '1', A5); 
+	SO: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(6), '1', '1', A6); 
+	HAPPY: register32 PORT MAP(WriteData, '0', '1', '1', WRITETHIS(7), '1', '1', A7); 
 
 	WITH ReadReg1 SELECT ReadData1 <= A0 when "01010",
 					A1 when "01011",

@@ -1,18 +1,4 @@
-{P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/ProcElements.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/ProcElements.vhd}
-QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity BusMux2to1
--- Compiling architecture selection of BusMux2to1
--- Compiling entity Control
--- Compiling architecture Boss of Control
--- Compiling entity ProgramCounter
--- Compiling architecture executive of ProgramCounter
-
-} {} {}} {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/registers.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/registers.vhd}
+{P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/registers.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/registers.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -33,6 +19,20 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Compiling entity shift_register
 -- Compiling architecture shifter of shift_register
 ** Warning: P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/lab 3/registers.vhd(190): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+
+} {} {}} {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/ProcElements.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/ProcElements.vhd}
+QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity BusMux2to1
+-- Compiling architecture selection of BusMux2to1
+-- Compiling entity Control
+-- Compiling architecture Boss of Control
+-- Compiling entity ProgramCounter
+-- Compiling architecture executive of ProgramCounter
 
 } {} {}} {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/InstrMemory.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/InstrMemory.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
@@ -63,16 +63,19 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Compiling entity ALU
 -- Compiling architecture ALU_Arch of ALU
 
-} {} {}} {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd}
+} {} {}} {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/RAM.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/RAM.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity Processor
--- Compiling architecture holistic of Processor
-** Warning: P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/Processor.vhd(179): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+-- Compiling entity RAM
+-- Compiling architecture staticRAM of RAM
+-- Compiling entity Registers
+-- Compiling architecture remember of Registers
+** Warning: P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/RAM.vhd(192): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
 
 } {} {}} {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/tProcessor.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Spring 2018/ECEGR 2220 Microprocessor Design/AVOCADOS/AVOCADOS/Lab 6/tProcessor.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
