@@ -40,15 +40,10 @@ begin
     end if;
 
 	-- Rest of the RAM implementation
-	if rising_edge(Clock) then
-	if (OE = '0') then
-		if (to_integer(unsigned(Address)) < 128) then
-			DataOut <= i_ram(to_integer(unsigned(Address)));
-		else
-			DataOut <= "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"; 
-		end if;
-	end if;
-	end if;
+	if OE = '0' and to_integer(unsigned(Address)) < 128 then
+	DataOut <= i_ram(to_integer(unsigned(Address)));
+   	end if;
+
   end process RamProc;
 
 end staticRAM;	
@@ -113,7 +108,7 @@ WITH WriteCmd & WriteReg SELECT WRITETHIS <= "00000001" when "101010",
 					A7 when "10001",
 					X0 when others;
 
-	WITH ReadReg1 SELECT ReadData2 <= A0 when "01010",
+	WITH ReadReg2 SELECT ReadData2 <= A0 when "01010",
 					A1 when "01011",
 					A2 when "01100",
 					A3 when "01101",

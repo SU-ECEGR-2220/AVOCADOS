@@ -140,7 +140,7 @@ begin
 
 	mux_2: BusMux2to1  port map(MemtoReg, ALU_out, ReadData, mux2);
 
-	IMEM: instructionRAM port map(reset, clock, PCO(31 downto 2), DOut);
+	IMEM: DOutRAM port map(reset, clock, PCO(31 downto 2), DOut);
 
 	Cntrl: Control 	     port map(clock, DOut(6 downto 0), DOut(14 downto 12), DOut(31 downto 25), Branch, MemRead, MemtoReg, ALUCtrl,MemWrite,ALUSrc, RegWrite, ImmGen);
 

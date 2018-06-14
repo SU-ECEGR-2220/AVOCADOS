@@ -54,7 +54,8 @@ begin
 		final_result <= addsub_result when "00",
 				shift_result when "01",
 				and_result when "10",
-				or_result when others;
+				or_result when "11",
+				DataIn2 when others;
 
 	with final_result select
 		Zero <= '1' when  "00000000000000000000000000000000",

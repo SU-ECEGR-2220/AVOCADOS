@@ -1,4 +1,4 @@
-{P:/Microprocessors/AVOCADOS/Lab 6/thanh/ALU.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:\Microprocessors\AVOCADOS\Lab 6\thanh\ALU.vhd}
+{P:/Microprocessors/AVOCADOS/Lab 6/thanh/ALU.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/thanh/ALU.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -8,6 +8,32 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity ALU
 -- Compiling architecture ALU_Arch of ALU
+
+} {} {}} {P:/Microprocessors/AVOCADOS/Lab 6/thanh/Processor.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/thanh/Processor.vhd}
+QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Processor
+-- Compiling architecture holistic of Processor
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/thanh/Processor.vhd(157): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/thanh/Processor.vhd(164): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+
+} {} {}} {P:/Microprocessors/AVOCADOS/Lab 6/thanh/RAM.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/thanh/RAM.vhd}
+QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity RAM
+-- Compiling architecture staticRAM of RAM
+-- Compiling entity Registers
+-- Compiling architecture remember of Registers
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/thanh/RAM.vhd(80): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
 
 } {} {}} {P:/Microprocessors/AVOCADOS/Lab 6/thanh/registers.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/thanh/registers.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
@@ -29,32 +55,7 @@ QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
 -- Compiling architecture calc of adder_subtracter
 -- Compiling entity shift_register
 -- Compiling architecture shifter of shift_register
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/thanh/registers.vhd(190): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
-
-} {} {}} {P:/Microprocessors/AVOCADOS/Lab 6/thanh/RAM.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/thanh/RAM.vhd}
-QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity RAM
--- Compiling architecture staticRAM of RAM
--- Compiling entity Registers
--- Compiling architecture remember of Registers
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/thanh/RAM.vhd(85): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
-
-} {} {}} {P:/Microprocessors/AVOCADOS/Lab 6/thanh/Processor.vhd} {2 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/thanh/Processor.vhd}
-QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity Processor
--- Compiling architecture holistic of Processor
-** Warning: P:/Microprocessors/AVOCADOS/Lab 6/thanh/Processor.vhd(179): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: P:/Microprocessors/AVOCADOS/Lab 6/thanh/registers.vhd(188): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
 
 } {} {}} {P:/Microprocessors/AVOCADOS/Lab 6/thanh/tProcessor.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {P:/Microprocessors/AVOCADOS/Lab 6/thanh/tProcessor.vhd}
 QuestaSim-64 vcom 10.5e Compiler 2017.06 Jun 16 2017

@@ -106,24 +106,22 @@ architecture biggermem of register32 is
 		     dataout: out std_logic_vector(7 downto 0));
 	end component;
 
-	signal enout_1: std_logic;
-	signal enout_2: std_logic;
-	signal writein_1: std_logic;
-	signal writein_2: std_logic;
+	signal enabler: std_logic_vector(2 downto 0);
+	signal writer: 	std_logic_vector(2 downto 0);
 begin
 	-- insert code here.
-	
-	enout_1 <= enout32 and enout16 and enout8;
-	writein_1 <= writein32 or writein16 or writein8;
+	enabler(2) <= enout32; --active low
+	enabler(1) <= enout16 and enout32;
+	enabler(0) <= enout8 and enout16 and enout32;
 
-	enout_2 <= enout32 and enout16;
-	writein_2 <= writein32 or writein16;
+	writer(2) <= writein32; --active high
+	writer(1) <= writein16 or writein32;
+	writer(0) <= writein8 or writein16 or writein32;
 
-
-	register0: register8 port map (datain(7 downto 0), enout_1, writein_1, dataout(7 downto 0));
-	register1: register8 port map (datain(15 downto 8), enout_2, writein_2, dataout(15 downto 8));
-	register2: register8 port map (datain(23 downto 16), enout32, writein32, dataout(23 downto 16));
-	register3: register8 port map (datain(31 downto 24), enout32, writein32, dataout(31 downto 24));
+	reg32: register8 port map(datain(31 downto 24), enabler(2), writer(2), dataout(31 downto 24));
+	reg24: register8 port map(datain(23 downto 16), enabler(2), writer(2), dataout(23 downto 16));
+	reg16: register8 port map(datain(15 downto 8),  enabler(1), writer(1), dataout(15 downto 8));
+	reg08: register8 port map(datain(7 downto 0),   enabler(0), writer(0), dataout(7 downto 0));
 
 end architecture biggermem;
 
