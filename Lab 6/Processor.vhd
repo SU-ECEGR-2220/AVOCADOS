@@ -145,10 +145,11 @@ begin
 	register1: Registers port map(Dout(19 downto 15), Dout(24 downto 20), Dout(11 downto 7), mux2, RegWrite, ReadData1, ReadData2);
 
 	with ImmGen select
-		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "00",
-				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 25)&Dout(11 downto 7) when "01",
-				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(7)&Dout(30 downto 25)&Dout(11 downto 8)&'0' when "10",
-				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 12) when others; 	
+		ImmGeno <= Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 20) when "01",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 25)&Dout(11 downto 7) when "10",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(7)&Dout(30 downto 25)&Dout(11 downto 8)&'0' when "00",
+				Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31)&Dout(31 downto 12) when "11",
+				"ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" when others; 	
 
 	add2: adder_subtracter port map(PCO, ImmGenO, '0', add2_out, carry2_out);
 
@@ -161,9 +162,11 @@ begin
 	muxtwo: BusMux2to1 port map(MemReg, ReadData, ALU_result, mux2);
 
 	with zero & Branch select
-		selector_mux3 <= '1' when "101",
-					'1' when "110",
-					'0' when others;
+		selector_mux3 <= '0' when "-00",
+					'0' when "001", -- BEQ
+					'1' when "101", -- BEQ
+					'1' when "010", -- BNE
+					'0' when others; --anything else PC+4
 	
 	
 	muxthree: BusMux2to1 port map(selector_mux3, add1_out, add2_out, PCN);	
